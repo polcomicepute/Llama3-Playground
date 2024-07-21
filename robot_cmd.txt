@@ -1,0 +1,71 @@
+# command
+/llama-cli -m /home/jetson/llamaR/Llama3-Playground/models/llama_3_8b_instruct/ggml-model-Q4_K_M.gguf -p "The robot is equipped with wheels and a manipulator arm.
+When given the command 'Water, please' to the robot:
+
+1. What locations does the robot need to move to in order to execute the command? Please provide at least three common locations where that is typically found.
+2. What actions does the robot need to perform?"  -ngl 128 -t 16 -n 400 --log-disable
+
+# -n 400
+Solution:
+When given the command 'Water, please' to the robot:
+
+1. The robot needs to move to the following locations to execute the command:
+   - The sink or water dispenser: This is typically found in the kitchen or bathroom.
+   - The water tap or faucet: This is typically found in the kitchen, bathroom, or laundry room.
+   - The storage area for water bottles or containers: This is typically found in the kitchen, pantry, or utility room.
+
+2. The robot needs to perform the following actions:
+   - Move to the location of the sink or water dispenser and retrieve a water container or bottle.
+   - Fill the container or bottle with water by turning on the water tap or faucet and allowing the water to flow.
+   - Return to the original location with the filled water container or bottle.
+   
+로봇이 '물 좀 주세요'라는 명령을 받았을 때 수행해야 할 작업에 대한 솔루션은 다음과 같습니다:
+
+### 로봇이 이동해야 할 위치
+
+1. **싱크대 또는 정수기**: 주로 주방이나 욕실에서 찾을 수 있습니다.
+2. **수도꼭지**: 주방, 욕실 또는 세탁실에서 주로 찾을 수 있습니다.
+3. **물병 또는 용기 보관 장소**: 주로 주방, 팬트리 또는 유틸리티룸에서 찾을 수 있습니다.
+
+### 로봇이 수행해야 할 행동
+
+1. **싱크대 또는 정수기 위치로 이동하여 물 용기나 병을 가져오기**: 로봇은 물을 담을 용기나 병을 가져와야 합니다.
+2. **용기나 병에 물을 채우기 위해 수도꼭지를 틀고 물이 흐르게 하기**: 로봇은 물을 채우기 위해 수도꼭지를 열어야 합니다.
+3. **채운 물 용기나 병을 가지고 원래 위치로 돌아가기**: 로봇은 채운 물 용기나 병을 가지고 원래 위치로 돌아가야 합니다.
+
+이와 같이 로봇은 명령을 수행하기 위해 주방, 욕실, 팬트리 등의 위치로 이동하고, 물을 채우는 등의 작업을 수행해야 합니다.
+   
+# -n 1000
+The robot is equipped with wheels and a manipulator arm.
+When given the command 'Water, please' to the robot:
+
+1. What locations does the robot need to move to in order to execute the command? Please provide at least three common locations where that is typically found.
+2. What actions does the robot need to perform? Please provide at least two actions the robot needs to perform to execute the command.
+
+Location(s) the robot needs to move to:
+
+1. Kitchen: Typically, water is found in the kitchen, often stored in the sink, a water dispenser, or a water cooler.
+2. Bathroom: In some households, water is also found in the bathroom, specifically in the shower or bathtub area.
+3. Outdoor area (e.g., backyard): In some cases, there might be an outdoor water source, such as a water hose or a water feature in a garden or pool.
+
+Actions the robot needs to perform:
+
+1. Move to the location where water is found: The robot needs to navigate to the location where water is typically found, whether it's the kitchen, bathroom, or outdoor area.
+2. Open the water source: Once the robot has reached the location, it needs to open the water source, such as turning on the faucet in the kitchen or opening the showerhead in the bathroom. This action may require some manipulation and interaction with the environment.
+
+Assuming the robot is equipped with a manipulator arm and wheels, it can move around and interact with the environment to accomplish the task. The robot can navigate to the location where water is found, open the water source, and then pour or dispense the water as needed. The specific actions and locations may vary depending on the context and environment in which the robot is operating.
+
+로봇이 바퀴와 조작 팔을 갖추고 있으며, '물 좀 주세요'라는 명령을 받았을 때 다음과 같이 해석할 수 있습니다:
+
+### 로봇이 이동해야 할 위치
+
+1. **주방**: 일반적으로 물은 주방에서 찾을 수 있습니다. 주로 싱크대, 정수기 또는 냉온수기에서 물이 보관됩니다.
+2. **욕실**: 어떤 가정에서는 욕실에서도 물을 찾을 수 있습니다. 특히 샤워기나 욕조에서 물을 구할 수 있습니다.
+3. **야외 지역 (예: 뒷마당)**: 어떤 경우에는 정원 호스나 정원 또는 수영장과 같은 야외 물 공급원에서 물을 찾을 수 있습니다.
+
+### 로봇이 수행해야 할 행동
+
+1. **물 위치로 이동**: 로봇은 주방, 욕실 또는 야외 지역과 같이 물이 일반적으로 있는 위치로 이동해야 합니다.
+2. **물 공급원 열기**: 로봇이 위치에 도달하면, 물 공급원을 열어야 합니다. 예를 들어, 주방의 수도꼭지를 열거나 욕실의 샤워기를 여는 것과 같은 행동을 해야 합니다. 이러한 행동은 환경과 상호작용하고 조작하는 능력을 필요로 합니다.
+
+로봇이 바퀴와 조작 팔을 갖추고 있다면, 이동하고 환경과 상호작용하여 명령을 수행할 수 있습니다. 로봇은 물이 있는 위치로 이동하고, 물 공급원을 열고, 필요에 따라 물을 붓거나 배분할 수 있습니다. 구체적인 행동과 위치는 로봇이 운영되는 상황과 환경에 따라 다를 수 있습니다.
