@@ -5,6 +5,47 @@ When given the command 'Water, please' to the robot:
 1. What locations does the robot need to move to in order to execute the command? Please provide at least three common locations where that is typically found.
 2. What actions does the robot need to perform?"  -ngl 128 -t 16 -n 400 --log-disable
 
+
+./llama-llava-cli -m ../Llama3-Playground/models/llava-mistral-gguf/llava-v1.6-mistral-7b.Q4_K_M.gguf --mmproj ../Llama3-Playground/models/llava-mistral-gguf/mmproj-model-f16.gguf --image /home/jetson/cmap/athirdmapper/exp0610_ViT-B-16-SigLIP_3_copy/n_images/2.png \
+-p "You are the robot which is equipped with wheels and a manipulator arm.
+When given the command 'Water, please' to the robot:
+
+1. What locations does the robot need to move to in order to execute the command? Please provide at least three common locations where that is typically found.
+2. What actions does the robot need to perform?" -c 4096 -ngl 128
+
+
+The robot is equipped with wheels and a manipulator arm.
+When given the command 'Water, please' to the robot:
+
+1. What locations does the robot need to move to in order to execute the command? Please provide at least three common locations where that is typically found.
+2. What actions does the robot need to perform?
+
+
+
+<LLAVA>-------------------------------
+
+./llama-llava-cli -m ../Llama3-Playground/models/llava-mistral-gguf/llava-v1.6-mistral-7b.Q4_K_M.gguf --mmproj ../Llama3-Playground/models/llava-mistral-gguf/mmproj-model-f16.gguf --image /home/jetson/cmap/athirdmapper/exp0610_ViT-B-16-SigLIP_3_copy/n_images/2.png \
+-p "<image>\nUSER:\nYou are the robot which is equipped with wheels and a manipulator arm.
+When given the command 'Water, please' to the robot:
+1. Based on the image, where do you think you are right now?
+2. Then, from your current location, where do you think the robot could move to execute commands? Please provide at least three potential destinations.
+3. What actions does the robot need to perform?.\nASSISTANT:\n" -c 4096 -ngl 128
+
+1. What locations does the robot need to move to in order to execute the command? Please provide at least three common locations where that is typically found.
+
+
+--------------------------------------------
+
+<llava-llama3-8B>
+./llama-llava-cli -m ../Llama3-Playground/models/llava-llama/llava-llama-3-8b-v1_1-int4.gguf --mmproj ../Llama3-Playground/models/llava-llama/llava-llama-3-8b-v1_1-mmproj-f16.gguf --image /home/jetson/cmap/athirdmapper/exp0610_ViT-B-16-SigLIP_3_copy/n_images/2.png -e -p "<|start_header_id|>user<|end_header_id|>\n\n<image>\n You are the robot which is equipped with wheels and a manipulator arm.
+When given the command 'Water, please' to the robot:
+1. Based on the image, where do you think you are right now?
+2. From your current location, where do you think the robot could move to execute that command? Please provide at least three potential destinations.
+3. What actions does the robot need to perform?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n" -c 4096 -ngl 128
+
+
+
+
 # -n 400
 Solution:
 When given the command 'Water, please' to the robot:
@@ -69,3 +110,91 @@ Assuming the robot is equipped with a manipulator arm and wheels, it can move ar
 2. **물 공급원 열기**: 로봇이 위치에 도달하면, 물 공급원을 열어야 합니다. 예를 들어, 주방의 수도꼭지를 열거나 욕실의 샤워기를 여는 것과 같은 행동을 해야 합니다. 이러한 행동은 환경과 상호작용하고 조작하는 능력을 필요로 합니다.
 
 로봇이 바퀴와 조작 팔을 갖추고 있다면, 이동하고 환경과 상호작용하여 명령을 수행할 수 있습니다. 로봇은 물이 있는 위치로 이동하고, 물 공급원을 열고, 필요에 따라 물을 붓거나 배분할 수 있습니다. 구체적인 행동과 위치는 로봇이 운영되는 상황과 환경에 따라 다를 수 있습니다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<llava-mistral 7b q4_k_m 답변>
+1. To execute the command 'Water, please', the robot needs to move to the kitchen, the bathroom, or the outdoor faucet. These are common locations where water can typically be found.
+2. The robot needs to activate the water tap or faucet, and then either use the manipulator arm to collect the water or open a water bottle.
+--------------------
+USER:
+You are the robot which is equipped with wheels and a manipulator arm.
+When given the command 'Water, please' to the robot:
+1. Based on the image, where do you think you are right now?
+2. From your current location, where do you think the robot could move to execute commands? Please provide at least three common locations where that is typically found.
+3. What actions does the robot need to perform?.
+ASSISTANT:
+
+
+1. Based on the image, the robot appears to be in a room, likely an office or a storage area, given the presence of a cabinet and a shelf filled with various items.
+2. The robot could move to execute commands in a few common locations:
+   - A kitchen, where it could access a water source or a water dispenser.
+   - A bathroom, where it could find a water faucet.
+   - A water storage room, where it could access pre-filled containers.
+3. To execute the command 'Water, please', the robot needs to perform the following actions:
+   - Navigate to the water source or container.
+   - Open the container or tap the faucet to release water.
+   - Fill the container or fill the water tank.
+   - Close the container or faucet.
+   - Navigate back to the user or move to a designated location to drop off the water.
+
+-----------------------------
+USER:
+You are the robot which is equipped with wheels and a manipulator arm.
+When given the command 'Water, please' to the robot:
+1. Based on the image, where do you think you are right now?
+2. From your current location, where do you think the robot could move to execute commands? Please provide at least three potential destinations.
+3. What actions does the robot need to perform?.
+ASSISTANT:
+
+
+1. Based on the image, the robot appears to be inside a room with shelving and a desk.
+2. Potential destinations for the robot could include:
+   a) Moving to a water source to access the water.
+   b) Moving to a water tap or faucet if available.
+   c) Moving to a storage container that may contain water.
+3. To execute the command 'Water, please', the robot would need to:
+   a) Locate the nearest water source, tap, or storage container.
+   b) Use its manipulator arm to interact with the water source, tap, or container.
+   c) Collect the water using the manipulator arm.
+   d) Return to the user or its designated area to deliver the water.
+
+Note that the actions described above are based on the image provided and may not be the most efficient or safest way to access water, especially if the robot is not equipped with a water tank or is not capable of carrying heavy loads. It is essential to ensure that the robot is programmed and equipped to handle such tasks safely and effectively. 
+
+
+
+<LLAMA3>
+user_prompt: 
+ You are the robot which is equipped with wheels and a manipulator arm.
+When given the command 'Water, please' to the robot:
+1. Based on the image, where do you think you are right now?
+2. From your current location, where do you think the robot could move to execute that command? Please provide at least three potential destinations.
+3. What actions does the robot need to perform?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+
+
+1. Based on the image, the robot is currently located in a room with shelves and a cabinet. It seems to be indoors, possibly in a storage or maintenance area.
+2. To execute the command 'Water, please', the robot could move to one of the following three potential destinations: 
+   a. The sink is located near the shelves and the cabinet. The robot could move to that area to access the water.
+   b. The robot could move to the sink where it is currently located to access the water.
+   c. The robot could move to another area of the building with access to a water source.
+3. To perform the command, the robot needs to perform the following actions:
+   a. Move to the appropriate destination for water access.
+   b. Use its manipulator arm to open the water source, if necessary.
+   c. Collect the water using its manipulator arm.
+   d. Return to its current location or another location with the water.
+
+
