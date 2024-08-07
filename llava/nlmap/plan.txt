@@ -1,0 +1,189 @@
+Task: Hold the snickers
+Available objects: snickers
+Explanation: Hold on means to pick it up. I will pick up the snickers.
+Robot:
+1. pick up the snickers
+2. done
+
+Task: Put the trailmix here
+Available objects: trailmix
+Explanation: This is a single action of putting down the trailmix.
+Robot:
+1. put down the trailmix
+2. done
+
+Task: Put a water bottle and an oatmeal next to the microwave
+Available objects: water bottle, oatmeal, microwave
+Explanation: I will find and move a water bottle to the microwave, then find and move an oatmeal to the microwave.
+Robot:
+1. find the water
+2. pick up the water
+3. go to microwave
+4. put down the water
+5. find the oatmeal
+6. pick up the oatmeal
+7. go to the microwave
+8. put down the oatmeal
+9. done
+
+Task: Put the mug in the cardboard box
+Available objects: 
+Explanation: There is no mug nor cardboard box available so I will do nothing.
+Robot:
+1. done
+
+Task: Put a grapefruit from the table into the bowl
+Available objects: grapefruit, bowl, table
+Explanation: I will find and pick up the grapefruit, then find the bowl and put the grapefruit in it.
+Robot:
+1. find the grapefruit
+2. pick up the grapefruit
+3. go to the bowl
+4. put down the grapefruit
+5. done
+
+Task: Get a sponge from the counter and put it in the sink
+Available objects: sponge, sink
+Explanation: I will find a sponge first. Then I will pick up the sponge and put it down in the sink.
+Robot:
+1. find the sponge
+2. pick up the sponge
+3. go to the sink
+4. put down the sponge
+5. done
+
+Task: Move the water from the table to the counter
+Available objects: water, table, counter
+Explanation: The user has requested moving the water to the counter. I will find the water and pick it up, then put it on the counter.
+Robot:
+1. find the water
+2. pick up the water
+3. go to the counter
+4. put down the water
+5. done
+
+Task: Bring me some snacks
+Available objects: human, twix
+Explanation: The user has requested some snacks, twix is a type of snack. I will bring the user some twix.
+Robot:
+1. find the twix
+2. pick up the twix
+3. find the human
+4. put down the twix
+5. done
+
+Task: Bring me an orange
+Available objects: human
+Explanation: There is no orange available so I will do nothing.
+Robot:
+1. done
+
+Task: Give me something to drink
+Available objects: human, pepsi, 7 up, milk, juice
+Explanation: The user has requested some drinks, pepsi is a type of drink. I will bring the user some pepsi.
+Robot:
+1. find the pepsi
+2. pick up the pepsi
+3. find the human
+4. put down the pepsi
+5. done
+
+Task: Put the apple in the basket
+Available objects: basket
+Explanation: There is no apple available so I will do nothing.
+Robot:
+1. done
+
+Task: Deliver a can of coke to me
+Available objects: coke can
+Explanation: The user has requested to deliver a can of coke.
+Robot:
+1. find the coke
+2. pick up the coke
+3. find the human
+4. put down the coke
+5. done
+
+Task: I finished my drink, can you throw it away and bring me a mountain dew
+Available objects: coke can, mountain dew
+Explanation: The user has requested to throw his drink (which appears to be a coke) away. I will put the coke in the trash, and then bring the user a mountain dew.
+Robot:
+1. find the coke can
+2. pick up the coke can
+3. go to the trash
+4. put down the coke can
+5. find the mountain dew
+6. pick up the mountain dew
+7. find the human
+8. put down the mountain dew
+9. done
+
+Task: Let go of the banana
+Available objects: banana
+Explanation: Let go simply means to put down. I will put down the banana.
+Robot:
+1. put down the banana
+2. done
+
+Task: Put the grapes in the bowl and then move the cheese to the table
+Available objects: grape, bowl, cheese
+Explanation: This is a query with two parts. The first part requires finding grapes and then moving them to the bowl. The second part requires finding the cheese and moving it to the table. I will make sure to finish both parts of the task.
+Robot:
+1. find the grapes
+2. pick up the grapes
+3. go to the bowl
+4. put down the grapes
+5. find the cheese
+6. pick up the cheese
+7. go to the table
+8. put down the cheese
+9. done
+
+Task: Pick up the peanuts
+Available objects: human, peanut
+Explanation: This is a simple task of a single step, I will just pick up the peanuts.
+Robot:
+1. pick up the peanuts
+2. done
+
+Task: Pick up the water bottle
+Available objects: 
+Explanation: There is no water bottle available so I will do nothing.
+Robot:
+1. done
+
+Task: Bring me the peanuts
+Available objects: peanut
+Explanation: The user has requested peanuts, I will find peanuts and bring them to the user.
+Robot:
+1. find the peanuts
+2. pick up the peanuts
+3. find the human
+4. put down the peanuts
+5. done
+
+Task: Throw away a coffee cup
+Available objects: coffee cup, trash can
+Explanation: The user has requested me to throw away a coffee cup. Throwing away means putting something in the trash can. I will find a coffee cup, pick that up and then put it in the trash.
+Robot:
+1. find the coffee cup
+2. pick up the coffee cup
+3. go to the trash
+4. put down the coffee cup
+5. done
+
+Task: Place a knife and a banana to the table
+Available objects: knife, table
+Explanation: There is no banana available so I will do nothing.
+Robot:
+1. done
+
+Task: Throw away the fruits
+Available objects: apple, orange, banana, lime
+Explanation: The user has requested me to throw away the fruits. Throwing away means putting something in the trash can. Banana is a type of fruit that’s available. I will find banana, pick that up and then put it in the trash.
+Robot:
+1. find the banana
+2. pick up the banana
+3. go to the trash
+4. put down the banana
+5. done

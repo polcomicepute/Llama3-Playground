@@ -1,0 +1,89 @@
+If you want to format the output such that each numbered item contains only one object, you can structure your prompt to specify this clearly. Here’s how you can phrase your prompt:
+
+### Example Prompt:
+
+"Please list the following items in the format: 1. object1 2. object2 3. object3:
+
+- Object1
+- Object2
+- Object3"
+
+### Example Output:
+
+1. Object1
+2. Object2
+3. Object3
+
+### Additional Tips:
+
+1. **Specify the Format Clearly:**
+   Make sure to explicitly state that each numbered item should contain only one object.
+
+2. **Use Numbering in Your Prompt:**
+   You can use a numbered list in your prompt to show the desired output structure.
+
+3. **Provide an Example:**
+   Including an example can help the model understand exactly how you want the list to look.
+
+### Full Example:
+
+To make it even clearer, here's a more detailed example prompt:
+
+"Please list the items in the following format: 1. object1 2. object2 3. object3. For example:
+
+- Apple
+- Banana
+- Cherry
+
+The output should be:
+1. Apple
+2. Banana
+3. Cherry
+
+Now, list these items:
+
+- Dog
+- Cat
+- Bird"
+
+The model should then provide the output in the desired format:
+
+1. Dog
+2. Cat
+3. Bird
+
+By following these guidelines, you can guide the LLM to produce outputs in the specific format you need.
+
+
+
+
+
+Task: help me make a cup of coffee
+Objects: cup, coffee, mug, coffee machine
+
+Task: check what time is it now
+Objects: clock, watch
+
+Task: let go of the banana
+Objects: banana, trash can
+
+Task: put the grapes in the bowl and then move the cheese to the table
+Objects: grape, bowl, cheese
+
+Task: find a coffee machine
+Objects: coffee machine
+
+Task: clean up the spilled coke
+Objects: spilled coke, towel, mop, napkin, sponge
+
+Task: bring me some soft drinks
+Objects: human, pepsi, coke, sprite, fanta, 7 up
+
+Task: boil some water
+Objects: water, kettle, sink, tap
+
+Task: wash the dishes
+Objects: sink, tap, mug, plate, bowl, fork, spoon, knife
+
+Task: place a knife and a banana to the table
+Objects: knife, banana, table

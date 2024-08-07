@@ -1,0 +1,17 @@
+f'''"""
+<image>\nUSER:\nYou are the robot which is equipped with wheels and a manipulator arm.
+
+When given the command '{user_input}' to the robot:
+(1) Based on the image, where do you think you are right now?
+(2) Then, from your current location, where do you think the robot could move to execute the command '{user_input}'? 
+    Please provide potential destinations in the following format: 1. object1 2. object2 3. object3
+    For example:
+        - Apple
+        - Banana
+        - Cherry
+    The output of question (2) should be:
+        1. Apple
+        2. Banana
+        3. Cherry
+.\nASSISTANT:\n
+"""'''

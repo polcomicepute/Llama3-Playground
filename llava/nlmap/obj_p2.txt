@@ -1,0 +1,74 @@
+The task ’hold the snickers’ may involve the following objects:
+snickers.
+
+The task ’wipe the table’ may involve the following objects:
+table, napkin, sponge, towel.
+
+The task ’put a water bottle and an oatmeal next to the microwave’ may involve the following objects:
+water bottle, oatmeal, microwave.
+
+The task ’place the mug in the cardboard box’ may involve the following objects:
+mug, cardboard box.
+
+The task ’go to the fridge’ may involve the following objects:
+fridge.
+
+The task ’put a grapefruit from the table into the bowl’ may involve the following objects:
+grapefruit, table, bowl.
+
+The task ’can you open the glass jar’ may involve the following objects:
+glass jar.
+
+The task ’heat up the taco and bring it to me’ may involve the following objects:
+taco, human, microwave oven, fridge.
+
+The task ’hold the fancy plate with flower pattern’ may involve the following objects:
+fancy plate with flower pattern.
+
+The task ’put the fruits in the fridge’ may involve the following objects:
+fridge, apple, orange, banana, peach, grape, blueberry.
+
+The task ’get a sponge from the counter and put it in the sink’ may involve the following objects:
+sponge, counter, sink.
+
+The task ’empty the water bottle’ may involve the following objects:
+water bottle, sink.
+
+The task ’i am hungry, give me something to eat’ may involve the following objects:
+human, candy, snickers, chips, apple, banana, orange.
+
+The task ’go to the trash can for bottles’ may involve the following objects:
+trash can for bottles.
+
+The task ’put the apple in the basket and close the door’ may involve the following objects:
+apple, basket, door.
+
+The task ’help me make a cup of coffee’ may involve the following objects:
+cup, coffee, mug, coffee machine.
+
+The task ’check what time is it now’ may involve the following objects:
+clock, watch.
+
+The task ’let go of the banana’ may involve the following objects:
+banana, trash can.
+
+The task ’put the grapes in the bowl and then move the cheese to the table’ may involve the following objects:
+grape, bowl, cheese.
+
+The task ’find a coffee machine’ may involve the following objects:
+coffee machine.
+
+The task ’clean up the spilled coke’ may involve the following objects:
+spilled coke, towel, mop, napkin, sponge.
+
+The task ’bring me some soft drinks’ may involve the following objects:
+human, pepsi, coke, sprite, fanta, 7 up.
+
+The task ’boil some water’ may involve the following objects:
+water, kettle, sink, tap.
+
+The task ’wash the dishes’ may involve the following objects:
+sink, tap, mug, plate, bowl, fork, spoon, knife.
+
+The task ’place a knife and a banana to the table’ may involve the following objects:
+knife, banana, table.

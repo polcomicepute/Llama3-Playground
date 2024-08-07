@@ -1,0 +1,74 @@
+Task: hold the snickers
+Objects: snickers
+
+Task: wipe the table
+Objects: table, napkin, sponge, towel
+
+Task: put a water bottle and an oatmeal next to the microwave
+Objects: water bottle, oatmeal, microwave
+
+Task: place the mug in the cardboard box
+Objects: mug, cardboard box
+
+Task: go to the fridge
+Objects: fridge
+
+Task: put a grapefruit from the table into the bowl
+Objects: grapefruit, table, bowl
+
+Task: can you open the glass jar
+Objects: glass jar
+
+Task: heat up the taco and bring it to me
+Objects: taco, human, microwave oven, fridge
+
+Task: hold the fancy plate with flower pattern
+Objects: fancy plate with flower pattern
+
+Task: put the fruits in the fridge
+Objects: fridge, apple, orange, banana, peach, grape, blueberry
+
+Task: get a sponge from the counter and put it in the sink
+Objects: sponge, counter, sink
+
+Task: empty the water bottle
+Objects: water bottle, sink
+
+Task: i am hungry, give me something to eat
+Objects: human, candy, snickers, chips, apple, banana, orange
+
+Task: go to the trash can for bottles
+Objects: trash can for bottles
+
+Task: put the apple in the basket and close the door
+Objects: apple, basket, door
+
+Task: help me make a cup of coffee
+Objects: cup, coffee, mug, coffee machine
+
+Task: check what time is it now
+Objects: clock, watch
+
+Task: let go of the banana
+Objects: banana, trash can
+
+Task: put the grapes in the bowl and then move the cheese to the table
+Objects: grape, bowl, cheese
+
+Task: find a coffee machine
+Objects: coffee machine
+
+Task: clean up the spilled coke
+Objects: spilled coke, towel, mop, napkin, sponge
+
+Task: bring me some soft drinks
+Objects: human, pepsi, coke, sprite, fanta, 7 up
+
+Task: boil some water
+Objects: water, kettle, sink, tap
+
+Task: wash the dishes
+Objects: sink, tap, mug, plate, bowl, fork, spoon, knife
+
+Task: place a knife and a banana to the table
+Objects: knife, banana, table

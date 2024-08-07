@@ -44,6 +44,14 @@ When given the command 'Water, please' to the robot:
 3. What actions does the robot need to perform?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n" -c 4096 -ngl 128
 
 
+ f'''"""
+<image>\nUSER:\nYou are the robot which is equipped with wheels and a manipulator arm.\n
+In the task `{user_input}`, what objects may involve?
+Based on the image, rate the likelihood of the presence of each object and rank them accordingly.
+After scoring, present the final results in the format: \n`result: 1.x, 2.y, 3.z`\n
+.\nASSISTANT:\n"
+"""'''
+# \nASSISTANT:\n
 
 
 # -n 400
