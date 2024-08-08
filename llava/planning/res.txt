@@ -1,0 +1,98 @@
+dog
+<image>\nUSER:\n
+Detect dog on the image. 
+Return Coordinates in x_min, y_min, x_max, and y_max format.
+\nASSISTANT:\n
+[0.18, 0.32, 0.45, 0.65]
+
+draw a box on the uploaded image using  [0.18, 0.32, 0.45, 0.65] coordinates.
+coordinates are defined in [x_min, y_min, x_max, y_max] relative to image width and height.
+
+output format 지정을 예시와 함께 안주니까 딴소리 엄청하네
+[0.769,0.167,0.681,0.417]
+
+    This is the car in the image. It's a white van parked on the street. The coordinates are [0.769,0.167,0.681,0.417]. 
+Traceback (most recent call last):
+  File "/home/jetson/llamaR/Llama3-Playground/llava/planning/plan_mistral.py", line 60, in <module>
+    x_min, y_min, x_max, y_max = map(float, coords_list)
+ValueError: could not convert string to float: "0.417]\n\n    This is the car in the image. It's a white van parked on the street. The coordinates are [0.769"
+
+[0.769,0.167,0.681,0.417] 
+0.769 0.167 0.681 0.417
+Traceback (most recent call last):
+  File "/home/jetson/llamaR/Llama3-Playground/llava/planning/plan_mistral.py", line 73, in <module>
+    draw.rectangle(coords, outline="red", width=3)
+  File "/home/jetson/.local/lib/python3.10/site-packages/PIL/ImageDraw.py", line 305, in rectangle
+    self.draw.draw_rectangle(xy, ink, 0, width)
+ValueError: x1 must be greater than or equal to x0
+
+
+car)
+[0.527,0.196,0.845,0.391] 
+0.527 0.196 0.845 0.391
+
+user_msg = f"""'''
+<image>\nUSER:\n
+Detect {user_input} on the image. 
+If (the object is not detected): return Just `None`, No other answers.
+Else (the object is detected): return Just Coordinates in [x_min, y_min, x_max, y_max] format, No other answers.
+    Coordinates are defined in [x_min, y_min, x_max, y_max] relative to image width and height.
+
+
+\n
+\nASSISTANT:\n
+'''"""
+
+#     Output should follow the format: `[x_min, y_min, x_max, y_max]`\n 
+
+cat)
+None 
+Traceback (most recent call last):
+  File "/home/jetson/llamaR/Llama3-Playground/llava/planning/plan_mistral.py", line 63, in <module>
+    x_min, y_min, x_max, y_max = map(float, coords_list)
+ValueError: could not convert string to float: ''
+
+
+
+
+
+
+
+
+
+ None''' 
+Traceback (most recent call last):
+  File "/home/jetson/llamaR/Llama3-Playground/llava/planning/plan_mistral.py", line 60, in <module>
+    x_min, y_min, x_max, y_max = map(float, coords_list)
+ValueError: could not convert string to float: ''
+
+
+user_msg = f"""'''
+<image>\nUSER:\n
+Detect {user_input} on the image. 
+If (the object is not detected): 
+    return Just `None`, No other answers. \n
+If (the object is detected): 
+    return Just Coordinates defined in [x_min, y_min, x_max, y_max] relative to image width and height, No other answers.Coordinates output should follow the format: `[x_min, y_min, x_max, y_max]`\n   
+
+\nASSISTANT:\n
+'''"""
+
+
+user_msg = f"""'''
+<image>\nUSER:\n
+Detect {user_input} on the image. 
+
+
+if (the object is detected): 
+    Coordinates is defined in [x_min, y_min, x_max, y_max] relative to image width and height
+    Coordinates output should follow the format: `[x_min, y_min, x_max, y_max]`
+    return (Just Coordinates `[x_min, y_min, x_max, y_max]`)\n\n
+
+else:
+    return (Just `None`)\n\n
+
+    
+     
+
+\nASSISTANT:\n
