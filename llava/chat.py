@@ -20,7 +20,7 @@ chat_handler = Llava16ChatHandler(clip_model_path='../models/llava-mistral-gguf/
 # ../models/llava-llama/llava-llama-3-8b-v1_1-int4.gguf'
 llm = Llama(model_path='/home/jetson/llamaR/Llama3-Playground/models/llava-mistral-gguf/llava-v1.6-mistral-7b.Q4_K_M.gguf',
             chat_handler=chat_handler,
-            n_ctx = 2048,
+            n_ctx = 4096,
             n_gpu_layers= 128)
 
 few_shot_prompt = open('nlmap/obj_p.txt', 'r').read()
@@ -37,8 +37,25 @@ When given the command 'Water, please' to the robot:
 user_input = input("원하는 Task를 입력하세요: ")
  
 user_msg = f'''"""
-<image>\nUSER:\nYou are the robot which is equipped with wheels and a manipulator arm.
+<image>\nUSER:\n
+You are the robot which is equipped with wheels and a manipulator arm, and the given image represents the environment you are observing.\n
 
+you got the task `{user_input}`, identify the objects that could be involved.\n
+Output should follow the format: `Objects: object1, object2, object3, object4` \n
+    For example:\n
+        Objects: table, napkin, sponge, towel\n
+        Objects: fridge\n
+        Objects: trash can for bottles\n
+        Objects: human, candy, snickers, chips, apple, banana, orange\n
+.\nASSISTANT:\n
+"""'''
+#  in order of their likelihood of presence, numbering them accordingly
+# 3. What actions does the robot need to perform?
+# : `result: 1. , 2. , 3. , ...
+# Please provide at least three potential destinations
+
+''' 
+<image>\nUSER:\nYou are the robot which is equipped with wheels and a manipulator arm.
 When given the command '{user_input}' to the robot:
 (1) Based on the image, where do you think you are right now?
 (2) Then, from your current location, where do you think the robot could move to execute the command '{user_input}'? 
@@ -51,13 +68,7 @@ When given the command '{user_input}' to the robot:
         1. Apple
         2. Banana
         3. Cherry
-.\nASSISTANT:\n
-"""'''
-#  in order of their likelihood of presence, numbering them accordingly
-# 3. What actions does the robot need to perform?
-# : `result: 1. , 2. , 3. , ...
-# Please provide at least three potential destinations
-
+'''
 
 
 
@@ -70,17 +81,10 @@ You are an assistant who can describe images in great detail and the robot which
 Here are some examples to guide you.\n 
 '''
 
-output_form= '''
-The output of question 2 should be like this:
-Example Output:
-    1. Object1
-    2. Object2
-    3. Object3
-'''
 
 response = llm.create_chat_completion(
     messages= [
-        {"role" : "system", "content" : sys_msg},
+        {"role" : "system", "content" : sys_msg + few_shot_prompt},
         {
             "role": "user",
             "content": [
