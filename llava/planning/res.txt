@@ -96,3 +96,464 @@ else:
      
 
 \nASSISTANT:\n
+
+
+<image>\nUSER:\n
+Please detect the following objects in the image: [{user_input}].
+
+For each detected object in the list, provide the coordinates in the following format:
+  {{
+    'object_name': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }}
+  }}\n
+If object is NOT detected, return:
+  {{
+    "object_name": {{
+        "x_min": -1000,
+        "y_min": -1000,
+        "x_max": -1000,
+        "y_max": -1000
+    }}
+  }}
+
+  For example, If one object 'x' is detected in list [x]:
+  {{
+    'x': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }}
+  }}\n
+    If two objects 'x, y' are detected in list [x, y]:
+  {{
+    'x': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }},
+    'y': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }}
+  }}\n  
+    If one object 'z' is NOT detected in list [z], return:
+{{
+    'z': {{
+        "x_min": -1000,
+        "y_min": -1000,
+        "x_max": -1000,
+        "y_max": -1000
+    	}}
+}}\n
+    If 'l' is detected, and 'q' is NOT detected in list [l, q], return:
+{{
+    'l': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }},
+    'q': {{
+        "x_min": -1000,
+        "y_min": -1000,
+        "x_max": -1000,
+        "y_max": -1000
+        }}
+}}\n 
+
+
+Ensure the output is in valid JSON format.
+\nASSISTANT:\n
+
+
+
+user_msg = f"""'''
+<image>\nUSER:\n
+Detect {user_input} on the image. 
+
+for 'object' in [{user_input}]:
+    if ('object' is detected): return Coordinates of 'object' relative to image width and height. Output should follow the format: `'object': [x_min, y_min, x_max, y_max]`.\n
+    else: Output should follow the format: `None`: true.\n\n
+'''"""
+user_msg_ex = '''
+so, If one object is detected:
+{
+    "object1": {
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+  }
+}\n
+
+If two objects are detected:
+{
+    "object1": {
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    },
+    "object2": {
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }
+}\n
+
+
+If 'None' is detected: {"None":true}\n
+
+
+\nASSISTANT:\n''' 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<image>\nUSER:\n
+Please detect the following objects in the image: [{user_input}].
+
+For each detected object in the list, provide the coordinates in the following format:
+  {{
+    'object_name': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }}
+  }}\n
+If object is NOT detected, return:
+  {{
+    "object_name": {{
+        "x_min": -1000,
+        "y_min": -1000,
+        "x_max": -1000,
+        "y_max": -1000
+    }}
+  }}
+
+  For example, If one object 'x' is detected in list [x]:
+  {{
+    'x': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }}
+  }}\n
+    If two objects 'x, y' are detected in list [x, y]:
+  {{
+    'x': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }},
+    'y': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }}
+  }}\n  
+    If one object 'z' is NOT detected in list [z], return:
+{{
+    'z': {{
+        "x_min": -1000,
+        "y_min": -1000,
+        "x_max": -1000,
+        "y_max": -1000
+    	}}
+}}\n
+    If 'l' is detected, and 'q' is NOT detected in list [l, q], return:
+{{
+    'l': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }},
+    'q': {{
+        "x_min": -1000,
+        "y_min": -1000,
+        "x_max": -1000,
+        "y_max": -1000
+        }}
+}}\n 
+
+
+Ensure the output is in valid JSON format.
+\nASSISTANT:\n
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+원하는 odj를 입력하세요: cat
+encode_image_with_clip: 5 segments encoded in  2294.97 ms
+encode_image_with_clip: image embedding created: 2880 tokens
+
+encode_image_with_clip: image encoded in  2419.07 ms by CLIP (    0.84 ms per image patch)
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =   12752.76 ms
+llama_print_timings:      sample time =     579.12 ms /    52 runs   (   11.14 ms per token,    89.79 tokens per second)
+llama_print_timings: prompt eval time =       0.00 ms /     0 tokens (     nan ms per token,      nan tokens per second)
+llama_print_timings:        eval time =    6925.35 ms /    52 runs   (  133.18 ms per token,     7.51 tokens per second)
+llama_print_timings:       total time =    7795.11 ms /    52 tokens
+{"dog": {"x_min": 0.234, "y_min": 0.509, "x_max": 0.681, "y_max": 0.827}}
+최종 탐지 결과: dict_keys(['dog'])
+
+
+
+
+
+
+
+
+
+
+
+<image>\nUSER:\n
+Please detect the following objects in the image: [{user_input}].
+
+For each detected object [{user_input}], provide the coordinates in the following format:
+  {{
+    'object_name': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }}
+  }}\n
+  
+If any of the values are missing or NOT detected, use the following default:
+{{
+  'object_name': {{
+      "x_min": -1000,
+      "y_min": -1000,
+      "x_max": -1000,
+      "y_max": -1000
+  }}
+}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+user_msg = f"""
+<image>\nUSER:\n
+Please detect the following objects in the image: [{user_input}].
+
+For each detected object [{user_input}], provide the coordinates in the following format:
+  {{
+    'object_name': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }}
+  }}\n
+  
+If any of the values are missing or NOT detected, use the following default:
+{{
+  'object_name': {{
+      "x_min": -1000,
+      "y_min": -1000,
+      "x_max": -1000,
+      "y_max": -1000
+  }}
+}}
+  For example, If one object 'x' is detected in list [x]:
+  {{
+    'x': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }}
+  }}\n
+    If two objects 'x, y' are detected in list [x, y]:
+  {{
+    'x': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }},
+    'y': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }}
+  }}\n  
+    If one object 'z' is NOT detected in list [z], return:
+{{
+    'z': {{
+        "x_min": -1000,
+        "y_min": -1000,
+        "x_max": -1000,
+        "y_max": -1000
+    	}}
+}}\n
+    If 'l' is detected, and 'q' is NOT detected in list [l, q], return:
+{{
+    'l': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }},
+    'q': {{
+        "x_min": -1000,
+        "y_min": -1000,
+        "x_max": -1000,
+        "y_max": -1000
+        }}
+}}\n 
+
+
+Ensure the output is in valid JSON format.
+\nASSISTANT:\n
+"""
+
+
+
+
+
+
+
+
+
+
+user_msg = f"""
+<image>\nUSER:\n
+Please detect the following objects in the image: [{user_input}]. 
+
+For each object in the list [{user_input}],
+  for obj in [{user_input}]:
+        if (obj is detected), return the coordinates in the following format:
+            {{
+                obj: {{
+                    "x_min": <float>,
+                    "y_min": <float>,
+                    "x_max": <float>,
+                    "y_max": <float>
+                }}
+            }}\n
+        else(==Only if obj is NOT detected), return the coordinates in the following format:
+            {{
+                obj: {{
+                    "x_min": -1000,
+                    "y_min": -1000,
+                    "x_max": -1000,
+                    "y_max": -1000
+                }}
+            }}\n 
+        
+Ensure that you only return results for the objects listed in [{user_input}], and no others. The output must be in valid JSON format.
+\nASSISTANT:\n
+"""
+
+
+user_msg = f"""
+<image>\nUSER:\n
+Please detect only the following objects in the image: [{user_input}].
+
+For each detected object in the list [{user_input}], provide the coordinates in the following format:
+  {{
+    '{user_input}_name': {{
+        "x_min": <float>,
+        "y_min": <float>,
+        "x_max": <float>,
+        "y_max": <float>
+    }}
+  }}\n
+  
+If any of the objects in the list [{user_input}] are not detected, use the following default:
+{{
+  '{user_input}_name': {{
+      "x_min": -1000,
+      "y_min": -1000,
+      "x_max": -1000,
+      "y_max": -1000
+  }}
+}}\n
+
+Ensure that you only return results for the objects listed in [{user_input}], and no others. The output must be in valid JSON format.
+\nASSISTANT:\n
+"""
+    response_format = {
+        "type": "json_object",
+        "schema": {
+            "type": "object",
+            "patternProperties": {
+                "^[a-zA-Z]+$": {
+                    "type": "object",
+                    "properties": {
+                        "x_min": {"type": "number"},
+                        "y_min": {"type": "number"},
+                        "x_max": {"type": "number"},
+                        "y_max": {"type": "number"}
+                    },
+                    "required": ["x_min", "y_min", "x_max", "y_max"]
+                }
+            }
+        }
+    } 
+
+
+
+    response_format = {
+        "type": "json_object",
+        "schema": {
+            "type": "object",
+            "properties": { 
+                    "detected" : {"type": "boolean"},
+                    "object_name" : {"type": "string"},
+                    "x_min": {"type": "number"},
+                    "y_min": {"type": "number"},
+                    "x_max": {"type": "number"},
+                    "y_max": {"type": "number"}
+                    },
+            "required": ["detected", "object_name", "x_min", "y_min", "x_max", "y_max"],
+        }
+    }

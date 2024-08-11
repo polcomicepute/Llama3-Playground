@@ -1,0 +1,52 @@
+<Throw away a coffee cup>
+Objects: coffee cup, trash can 
+
+Explanation:
+The robot should first find the coffee cup, which is likely to be located near a table or counter where people usually drink coffee. Once the robot has found the coffee cup, it should pick up the cup using its manipulator arm and go to the trash can. After reaching the trash can, the robot should put down the coffee cup inside it. Finally, the robot should confirm that the task is complete by saying "done".
+
+Robot: 
+1. find coffee cup
+2. pick up coffee cup
+3. go to trash can
+4. put down coffee cup in trash can
+5. done 
+ 
+Objects: coffee cup, trash can 
+
+Explanation:
+The robot should first find the coffee cup, then pick it up using its manipulator arm, go to a trash can (or any other suitable location for disposing of waste), put down the coffee cup in the trash can, and finally mark the task as done.
+
+Robot: 
+1. Find the coffee cup
+2. Pick up the coffee cup
+3. Go to the trash can
+4. Put down the coffee cup in the trash can
+5. Done 
+
+
+
+원하는 Task를 입력하세요: Throw away the fruits 
+Objects: table, napkin, sponge, towel 
+
+Explanation:
+The robot should first find the fruits in the environment, then pick them up using its manipulator arm, and go to a designated area or trash can for disposal. Once the fruits are placed inside the trash can, the robot should put down the fruits and mark the task as done.
+
+Robot: 
+1. Find the fruits in the environment (e.g., on the table, napkin, sponge, or towel).
+2. Pick up the fruits using its manipulator arm.
+3. Go to a designated area or trash can for disposal.
+4. Put down the fruits inside the trash can.
+5. Done 
+
+
+Explanation:
+overall plan
+The robot should first find the fruits, then pick them up using its manipulator arm, go to a trash can or designated area for disposing of waste, put down the fruits in the trash can, and finally mark the task as done.
+
+Robot: 
+1. Find the fruits (e.g., apple, banana, orange)
+2. Pick up the fruits using its manipulator arm
+3. Go to a trash can or designated area for disposing of waste
+4. Put down the fruits in the trash can
+5. Done
+
