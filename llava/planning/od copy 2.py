@@ -12,8 +12,8 @@ def image_to_base64_data_uri(file_path):
 
 # Replace 'file_path.png' with the actual path to your PNG file
 # img = input("원하는 사진 이름 입력: ")
-# file_path = './' + img #'./404.png'  
-file_path = './2.png' # dog_bike_car
+# file_path = './' + img #'./404.png'
+file_path = './dog_bike_car.png'
 data_uri = image_to_base64_data_uri(file_path=file_path)
 
 
@@ -34,8 +34,9 @@ user_msg = f"""
 <image>\nUSER:\n
 First, please provide chain-of-thought(cot) that includes the following steps: 
 1. Observation: Analyze all the objects present in the image.
-2. Thought: Determine whether the objects from the user's list [{user_input}] are present or not in the image. Think based on the observation(at point 1). If the object was not said at the observation, then it is not present in the image.
-3. Reasoning of the thought(at point 2)
+2. Thought: Whether {user_input} are(is) present in the image or not. 
+3. Reasoning: For each object in [{user_input}], state clearly if it is present or absent, and if present, provide a brief description of its location and appearance. If the object is absent, state that clearly.
+Ensure that the cot covers both points 1,2 and 3.
 
 Second, based on the cot, please detect 'only' [{user_input}] in the image.
     For each object in the list [{user_input}],
@@ -48,7 +49,7 @@ Second, based on the cot, please detect 'only' [{user_input}] in the image.
 		        "y_min": <float>,
 		        "x_max": <float>,
 		        "y_max": <float>
-		    }}\n
+		    }} \n
 	    else(obj is not present), return the coordinates in the following format: 
 		    {{
 		        "detected" : false
@@ -57,31 +58,161 @@ Second, based on the cot, please detect 'only' [{user_input}] in the image.
 		        "y_min": -1000,
 		        "x_max": -1000,
 		        "y_max": -1000
-		    }} 
-As a result, return the results in the following valid JSON format:
-    {{
-        "cot": {{
-            "observation": "<Analysis of all the objects present in the image>",
-            "thought": "<Determine of whether the objects from the user's list are present in the image based on observation>",
-            "reasoning": "<Reasoning of the thought>"
-        }},
-        "detected_objects": [
+		    }}\n
+ 
+As a result, Return the results in the following valid JSON format:
+    {{ "cot": "<whether {user_input} are(is) present or not>",
             {{
-                "detected": <boolean>,
-                "object_name": "<object_name>",
-                "x_min": <number>,
-                "y_min": <number>,
-                "x_max": <number>,
-                "y_max": <number>
-            }},
-            ...
-        ]
-    }}
+            "observation": {"type": "string"},
+            "thought": {"type": "string"},
+            "reasoning": {"type": "string"},
+            }} 
+    "detected_objects": [
+        {{
+        "detected": "<boolean>",
+        "object_name": "<object_name>",
+        "x_min": <number>,
+        "y_min": <number>,
+        "x_max": <number>,
+        "y_max": <number>
+        }},
+        ...
+    ] }}
 \nASSISTANT:\n
 """
 print(user_msg)
 
+
+'''
+	2. for obj in [{user_input}]:
+		if obj detected:
+			print(obj + " is in the image")
+		else: print(obj + " is not in the image")
+		
+First, please provide an 'explanation' that explains whether [{user_input}] are(is) present in the image or not based on accurate analysis the image.
+
+First, please provide an 'explanation' that explains whether [{user_input}] are(is) present in the image or not. You must provide an answer regarding the presence or absence of [{user_input}] based on accurately analysis the image.
+Return the results in the following format:
+    {{"explanation": "<whether each object in [{user_input}] is present or absent in the image>", 
+    "detected_objects": [
+        {{
+        "detected": "<boolean>",
+        "object_name": "<object_name>",
+        "x_min": <number>,
+        "y_min": <number>,
+        "x_max": <number>,
+        "y_max": <number>
+        }},
+        ...
+    ] }}\n 
+The output must be in valid JSON format.
+
+First, please provide an explanation that includes the following:
+1. A description of all the objects present in the image.
+2. An indication of whether each object in the following list [{user_input}] is present or not in the image.
+Ensure that the explanation covers both points 1 and 2 in detail.
+The explanation should describe all the objects and actions present in the image, and specifically mention whether each object in the following list [{user_input}] is present or not in the image.
+
+2. For each object, state clearly if it is present or absent, and if present, provide a brief description of its location and appearance. If the object is absent, state that clearly.
+
+You should base your detection on the explanation you provided. 
+Make sure that your object detection aligns with the details from your explanation.
+
+The output must include both the explanation and the detected objects in valid JSON without any markdown or additional formatting. 
+As a result, Return the results in the following valid JSON format without any markdown or additional formatting:
+    {{
+    "explanation": "<detailed description of the image, including whether each object in [{user_input}] is present or not>", 
+    "detected_objects": [
+        {{
+        "detected": "<boolean>",
+        "object_name": "<object_name>",
+        "x_min": <number>,
+        "y_min": <number>,
+        "x_max": <number>,
+        "y_max": <number>
+        }},
+        ...
+    ]
+    }}
+'''
   
+# Return the results in the following JSON format:
+
+# {{
+#     "explanation": "<>",
+#     "detected_objects": [
+#         {{
+#         "detected": true or false,
+#         "object_name": "<object_name>",
+#         "x_min": <float> or -1000,
+#         "y_min": <float> or -1000,
+#         "x_max": <float> or -1000,
+#         "y_max": <float> or -1000
+#         }},
+#     ...
+#   ]
+# }}
+
+
+
+# user_msg = f"""
+# <image>\nUSER:\n
+
+# Please provide a detailed 'explanation' of the image. The explanation should Describe what objects are in the image.
+
+# After providing the explanation, please detect only the following objects in the image based on the 'explanation': [{user_input}].
+
+# For each object in the list [{user_input}],
+#     for i, obj in enumerate([{user_input}]):
+#         if (obj is detected), return the coordinates in the following format:
+#             {{
+#                 i: {{
+#                     "detected" : true
+#                     "object_name" : obj,
+#                     "x_min": <float>,
+#                     "y_min": <float>,
+#                     "x_max": <float>,
+#                     "y_max": <float>
+#                 }}
+#             }}\n
+#         else, return the coordinates in the following format:
+#             {{
+#                 i: {{
+#                     "detected" : false
+#                     "object_name" :obj,
+#                     "x_min": -1000,
+#                     "y_min": -1000,
+#                     "x_max": -1000,
+#                     "y_max": -1000
+#                 }}
+#             }}\n
+
+# Ensure that you first provide the 'explanation' of the image, and then use that explanation to detect and return results for the objects listed in {user_input}. The output must include both the explanation and the detected objects in valid JSON format.
+# Return the results in the following JSON format:
+#     {{
+#     "explanation": "<detailed description of the image>",
+#     "detected_objects": [
+#         {{
+#         "detected": true or false,
+#         "object_name": "<object_name>",
+#         "x_min": <float> or -1000,
+#         "y_min": <float> or -1000,
+#         "x_max": <float> or -1000,
+#         "y_max": <float> or -1000
+#         }},
+#         ...
+#     ]
+#     }}
+# \nASSISTANT:\n
+# """
+
+
+# Ensure that you only return results for the objects listed in [{user_input}], and no others. The output must be in valid JSON format.
+
+
+# return (Just Coordinates defined in [x_min, y_min, x_max, y_max] relative to image width and height)\n\n
+#     Output should follow the format: `[x_min, y_min, x_max, y_max]`\n 
+# If (the object is NOT detected): 
 
 response = llm.create_chat_completion(
     messages=[
@@ -126,14 +257,14 @@ response = llm.create_chat_completion(
             }
         },
         "required": ["cot", "detected_objects"]
-    },
-    temperature = 0.0
+    }
+
+
+
+
+    # temperature = 0.0
 )
 '''
-3. Reasoning: For each object from the user's list [{user_input}], clearly state whether it is present or absent based on the thought(at point 2). If present, provide a brief description of its location and appearance. If absent, clearly state that it is not present.
-Ensure that the cot covers both points 1,2 and 3.
-
-
 response_format={
     "type": "json_object",
     "schema": {
