@@ -13,7 +13,7 @@ def image_to_base64_data_uri(file_path):
 # Replace 'file_path.png' with the actual path to your PNG file
 # img = input("원하는 사진 이름 입력: ")
 # file_path = './' + img #'./404.png'  
-file_path = './2.png' # dog_bike_car
+file_path = './1.png' # dog_bike_car
 data_uri = image_to_base64_data_uri(file_path=file_path)
 
 
@@ -35,7 +35,7 @@ user_msg = f"""
 First, please provide chain-of-thought(cot) that includes the following steps: 
 1. Observation: Analyze all the objects present in the image.
 2. Thought: Determine whether the objects from the user's list [{user_input}] are present or not in the image. Think based on the observation(at point 1). If the object was not said at the observation, then it is not present in the image.
-3. Reasoning of the thought(at point 2)
+
 
 Second, based on the cot, please detect 'only' [{user_input}] in the image.
     For each object in the list [{user_input}],
@@ -63,7 +63,6 @@ As a result, return the results in the following valid JSON format:
         "cot": {{
             "observation": "<Analysis of all the objects present in the image>",
             "thought": "<Determine of whether the objects from the user's list are present in the image based on observation>",
-            "reasoning": "<Reasoning of the thought>"
         }},
         "detected_objects": [
             {{
@@ -103,9 +102,8 @@ response = llm.create_chat_completion(
                     "properties": {
                         "observation": {"type": "string"},
                         "thought": {"type": "string"},
-                        "reasoning": {"type": "string"}, 
                     },
-                    "required": ["observation", "thought", "reasoning"]
+                    "required": ["observation", "thought"]
                 }
             },
             "detected_objects": {
