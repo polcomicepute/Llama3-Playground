@@ -50,3 +50,257 @@ Robot:
 4. Put down the fruits in the trash can
 5. Done
 
+
+
+
+
+
+
+
+다음은 사무실 환경에서 사람이 gripper manipulator 로봇에게 시킬만한 자연어 지시 사항 30개입니다.
+
+1. "Pick up the pen from the desk and place it in the drawer."
+2. "Grab the stack of papers and place them in the outbox."
+3. "Move the water bottle from the desk to the fridge."
+4. "Pick up the notepad and bring it to me."
+5. "Grab the stapler and put it back on the shelf."
+6. "Move the mouse pad closer to the keyboard."
+7. "Pick up the folder and place it in the filing cabinet."
+8. "Take the business cards from the holder and hand them to me."
+9. "Grab the coffee mug and place it in the sink."
+10. "Move the book from the table to the bookshelf."
+11. "Pick up the clipboard and hang it on the wall."
+12. "Grab the headset and place it on the charging dock."
+13. "Move the box from the desk to the storage area."
+14. "Pick up the phone and place it next to the computer."
+15. "Grab the whiteboard marker and place it in the tray."
+16. "Take the paper from the printer and place it on my desk."
+17. "Grab the scissors and put them in the supply drawer."
+18. "Move the trash bin closer to the desk."
+19. "Pick up the envelope and deliver it to the reception."
+20. "Grab the ruler and place it on the desk."
+21. "Move the chair closer to the conference table."
+22. "Pick up the tablet and place it on the charging station."
+23. "Grab the office keys and place them in the drawer."
+24. "Take the binder from the shelf and bring it to me."
+25. "Pick up the sticky notes and place them on the desk."
+26. "Move the bottle of water to the side table."
+27. "Grab the laptop and place it in the meeting room."
+28. "Pick up the picture frame and put it back on the shelf."
+29. "Move the file tray closer to the edge of the desk."
+30. "Grab the hand sanitizer and place it near the door."
+
+이 명령들은 사무실에서 gripper manipulator 로봇이 다양한 물체를 집거나 옮기면서 작업을 수행할 수 있는 상황에 맞춘 자연어 지시 사항들입니다.
+
+
+
+    `Explanation:
+    The robot should first find the light bulb, then pick it up and go to the switch. Once at the switch, the robot should put down the light bulb to turn off the light. After completing this task, the robot should end with "done".`
+    `Robot: 
+        1. find light bulb
+        2. pick up light bulb
+        3. go to switch
+        4. put down light bulb
+        done` 
+        
+        
+        
+Explanation:
+    The robot should first find the book on the table, then pick it up using its manipulator arm. Next, the robot should go to the bookshelf and put down the book at a suitable location. Once the task is complete, the robot should indicate that it has done so.`
+    `Robot: 
+        1. find the book on the table
+        2. pick up the book using its manipulator arm
+        3. go to the bookshelf
+        4. put down the book at a suitable location
+        5. done` 
+
+
+Pick up the pen from the desk and place it in the drawer 
+Objects: desk, pen, drawer 
+
+Explanation:
+The robot's overall plan is to find the pen, pick it up from the desk, go to the drawer, and put down the pen inside the drawer. Once the task is complete, the robot will terminate by saying "done".
+
+Robot: 
+1. Find the pen on the desk.
+2. Pick up the pen.
+3. Go to the drawer.
+4. Put down the pen in the drawer.
+5. Done. 
+
+
+I finished my drink, can you throw it away and bring me a mountain dew
+
+
+
+
+<image>\nUSER:\n
+You are the robot which is equipped with wheels and a manipulator arm, and the given image represents the environment you are observing.\n
+
+you got the task `{task}`, identify the objects that could be involved.\n
+Available objects are `{avail_obj}`\n
+
+Can you provide a concise, step-by-step plan for a robot to complete the following task using only the following action functions: "find", "pick_up", "go_to", "put_down", and "done"?
+The explanation of the action functions are as follow:
+	def go_to(coordinate: string):
+		# navigate robot base to location coordinates
+		# location can be object, location's, or description's coordinate
+
+	def find(object: string):
+		# find object location coordinate using camera equipped in robot arm
+		return ([x, y, z] float coordinate of object)
+		
+	def pick_up(what_to: string):
+		# move robot arm to 'what_to' coordinate and grasp
+		
+	def put_down(where_to: string):
+		# move robot arm to 'where_to' coordinate and release 
+
+	def done : terminate when the plans are done or plan is nothing
+
+
+First, Please include an explanation before listing the steps, detailing what the robot should do overall with format 
+Second, list only the essential steps using only the following action functions: ["find", "pick_up", "go_to", "put_down"] to complete the task, and make sure to end with "done" when the task is complete.
+Output should follow the format:\n
+Explanation:\n overall plan
+Robot: 
+1. task1on, it should navigate to that location using the "go_to" action function
+2. task2
+3. task3
+
+for example, 
+given available objects: coffee cup, trash can 
+Explaination:
+The robot should first "find" the coffee cup's location, which is likely to be located near a table or counter where people usually drink coffee. Once the robot has found the coffee cup, it should "go_to" the coffee cup's location. Pick up the cup using its manipulator arm from the table or counter. Next, "find" the trash can's location and "go_to" the trash can. After reaching the trash can, the robot should "put_down" the coffee cup inside the trash can. Finally, the robot should confirm that the task is complete by saying "done".
+Robot:  
+2. go_to(find(coffee cup))
+2. pick_up(coffee cup)
+3. go_to(find(trash can))
+4. put_down(coffee cup, the trash can)
+5. done 
+\n
+
+        
+\nASSISTANT:\n""" 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#! planning
+plan_user_msg = f"""
+<image>\nUSER:\n
+You are the robot which is equipped with wheels and a manipulator arm, and the given image represents the environment you are observing.\n
+
+you got the task `{task}`, identify the objects that could be involved.\n
+Available objects are `{avail_obj}`\n
+
+Can you provide a concise, step-by-step plan for a robot to complete the following task using only the following actions: "find", "pick up", "go to", "put down", and "done"?
+"find" : find the object before do actions
+"go to" : go to the location of the object 
+"pick up" : pick up the object 
+"put down" : put down the object 
+"done" : terminate when the plans are done or plan is nothing
+
+
+First, Please include an explanation before listing the steps, detailing what the robot should do overall with format 
+Second, list only the essential steps using only the following actions: ["find", "pick up", "go to", "put down"] to complete the task, and make sure to end with "done" when the task is complete.
+Output should follow the format:\n
+Explanation:\n overall plan
+Robot: 
+1. task1
+2. task2
+3. task3
+\n
+
+        
+\nASSISTANT:\n""" 
+
+
+
+def find(object) : find the object before do actions
+def go to(object) : go to the location of the object 
+def pick up(object): pick up the object 
+def put down(object1, object2=None) : put down the object1 in/at/on object2, object2 can be None
+def done : terminate when the plans are done or plan is nothing
+
+
+
+
+Can you provide a concise, step-by-step plan for a robot to complete the following task using only the following action functions: "find", "pick up", "go to", "put down", and "done"?
+The explanation of the action functions are as follow:
+	def go(location: string):
+	    # navigate robot base to location
+	    # location can be object, location, or description
+	    # usage example: go("water bottle"), go("kitchen"), 
+
+	def find(object: string):
+	    # find object coordinate using camera equipped in robot arm
+	    # return [x, y, z] float coordinate of object
+	    # returns False if there is no such object
+	    # usage example: find("water bottle")
+
+	def pick_up(what_to: string):
+	    # move robot arm to 'what_to' coordinate and grasp
+	    # equivalent with pick(find(what_to))
+	    def pick_up(coordinate: list[float, float, float]):
+		# move robot arm to coordinate and grasp
+	    # usage example: pick_up("water bottle") == pick_up(find("water bottle"))
+
+	def put_down(where_to: string):
+	    # move robot arm to 'where_to' coordinate and release
+	    # equivalent with put(find(where_to))
+	    def put_down(coordinate: list[float, float, float]):
+		# move robot arm to coordinate and release
+	    # usage example: put_down("water bottle") == put_down(find("water bottle"))
+
+	def done : terminate when the plans are done or plan is nothing
+	
+	
+1. coord_1 = find(coffee cup)	
+2. go_to(coord_1)
+2. pick_up(coffee cup)
+3. go_to(find(trash can))
+4. put_down(coffee cup, the trash can)
+5. done 
+
+
+Explaination:
+The robot should first "find" the coffee cup's location, which is likely to be located near a table or counter where people usually drink coffee. Once the robot has found the coffee cup, it should "go_to" the coffee cup's location. Pick up the cup using its manipulator arm. And "find" the d go to the trash can. After reaching the trash can, the robot should put down the coffee cup inside it. Finally, the robot should confirm that the task is complete by saying "done".
+
+Explanation:
+The robot should first "find" the pen's location on the desk using its camera equipped in its manipulator arm. Once the robot has found the pen, it should "go_to" the pen's location on the desk. Pick up the pen using its manipulator arm from the desk. Next, "find" the drawer's location where the pen should be placed. After reaching the drawer, the robot should "put_down" the pen inside the drawer. Finally, the robot should confirm that the task is complete by saying "done".
+Robot:  
+1. go_to(find(pen))
+2. pick_up(pen)
+3. go_to(find(drawer))
+4. put_down(pen, the drawer)
+5. done 
+
+
+
+Pick up the notepad and bring it to me
+
+Objects: notepad, table 
+
+Explanation:
+The robot should first "find" the notepad's location, which is likely to be located on a table or counter where people usually write notes. Once the robot has found the notepad, it should "go_to" the notepad's location. Pick up the notepad using its manipulator arm from the table or counter. Next, "find" a suitable location for the notepad, such as a table or desk where the user can easily access it. After reaching the desired location, the robot should "put_down" the notepad on the table or desk. Finally, the robot should confirm that the task is complete by saying "done".
+Robot:  
+1. go_to(find(notepad))
+2. pick_up(notepad)
+3. find(table or desk)
+4. go_to(table or desk)
+5. put_down(notepad, table or desk)
+6. done 
+jetson@ub
