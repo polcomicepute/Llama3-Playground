@@ -2,14 +2,15 @@
 from utils import *
 import re
 from PIL import Image, ImageDraw
-from robot_function import parse_cmd
-
+from robot_function import * 
+import gc
 
 plan_few_shot_prompt = open_file('../nlmap/obj_p.txt') 
 op_few_shot_prompt = open_file('../nlmap/plan_half.txt')
 
 data_uri = image_to_base64_data_uri(file_path='/home/jetson/cmap/athirdmapper/exp0610_ViT-B-16-SigLIP_3_copy/n_images/2.png')
 
+initialize_llm()
 
 task = input("원하는 Task를 입력하세요: ")
 
@@ -106,4 +107,14 @@ print(plan_user_msg)
 plan_response = chat(user_msg=plan_user_msg, data_uri=data_uri, few_shot_prompt=None)
 print(plan_response["choices"][0]["message"]['content'])
 
-cmd = parse_cmd(plan_response)
+cleanup_llm()
+
+print("--------------------------clean--------------------------")
+
+
+commands = parse_cmd(plan_response["choices"][0]["message"]['content'])
+
+execute_command(commands)
+    
+    
+torch.cuda.empty_cache()

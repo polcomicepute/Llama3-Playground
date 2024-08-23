@@ -562,3 +562,38 @@ Robot:
 8. done 
 --------------------------------------------------------------
 
+1. go_to(pen)
+2. pick_up(pen)
+3. go_to(drawer)
+4. put_down(pen, drawer)
+5. done 
+['go_to(pen)', 'pick_up(pen)', 'go_to(drawer)', 'put_down(pen, drawer)', 'done ']
+predefined:False, feature_dir:/home/jetson/dmap_ws/src/dmap/example, model:ViT-B-16-SigLIP, debug:True, show_prob:False
+Loading features from /home/jetson/dmap_ws/src/dmap/example
+Loaded 5112 features and 5112 features_vox
+CLIP model initializing to ViT-B-16-SigLIP
+CLIP model initialized
+DMAP Inference initialized
+Navigating to pen
+'pen' Goal: (-1.50, 9.50, 0.00), score: 4.966, freq: 18
+Keys in conf:
+	[(-3.5, -0.5, 0.0), (-3.25, -0.5, 0.0), (4.75, 7.5, 0.0), (-3.0, -0.5, 0.0), (-2.5, -0.25, 0.0)]
+	[[5.970145815094578, 6], [5.926102980270258, 5], [5.84935098190158, 1], [5.8012400165203815, 7], [5.792747783580258, 14]]
+Keys in freq:
+	[(-1.5, 9.5, 0.0), (-1.25, 9.25, 0.0), (-1.25, 9.5, 0.0), (-1.25, 9.0, 0.0), (-2.0, -0.25, 0.0)]
+	[[4.965559213443921, 18], [4.965559213443921, 18], [4.965559213443921, 18], [4.968405759723616, 17], [5.21800373271617, 15]]
+Picking up pen
+Navigating to drawer
+'drawer' Goal: (-3.75, 2.75, 0.00), score: 7.021, freq: 64
+Keys in conf:
+	[(4.5, -0.25, 0.0), (4.5, 0.0, 0.0), (-3.25, 10.0, 0.0), (-3.5, 9.25, 0.0), (-3.25, 9.25, 0.0)]
+	[[8.619448661144169, 2], [8.544531866074934, 1], [8.32560158645741, 1], [8.147084562313841, 3], [7.978837515198656, 6]]
+Keys in freq:
+	[(-3.75, 2.75, 0.0), (-3.75, 3.5, 0.0), (-3.5, 3.5, 0.0), (-3.5, 3.75, 0.0), (-3.5, 4.0, 0.0)]
+	[[7.020976302967497, 64], [6.979929115580887, 60], [6.96570749324603, 60], [6.968058018556307, 55], [6.978792065394765, 45]]
+Putting down pen in drawer
+All tasks completed!
+
+
+
+

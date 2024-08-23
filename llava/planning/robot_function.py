@@ -1,7 +1,6 @@
-import dmap
 import re
+import dmap
 
-# map = dmap.DMAPNode(predefined=False, debug=True)
 
 def parse_cmd(command: str):
     # 명령어 부분만 추출 (Robot: 이후의 부분만)
@@ -13,25 +12,29 @@ def parse_cmd(command: str):
     return commands
 
 # 명령어 매핑을 위한 파싱 및 실행 함수
-def execute_command(command):
-    if command.startswith("go_to"):
-        location = re.search(r"go_to\((.+)\)", command).group(1)
-        go_to(location.strip())
-    elif command.startswith("pick_up"):
-        object = re.search(r"pick_up\((.+)\)", command).group(1)
-        pick_up(object.strip())
-    elif command.startswith("put_down"):
-        match = re.search(r"put_down\((.+),\s*(.+)\)", command)
-        object = match.group(1).strip()
-        location = match.group(2).strip()
-        put_down(object, location)
-    elif command == "done":
-        print("All tasks completed!")
-    else:
-        print(f"Unknown command: {command}")
+def execute_command(commands):
+    map = dmap.DMAPNode(predefined=False, debug=True)  
+    for command in commands:
+        command = command.strip()
+        if command.startswith("go_to"):
+            location = re.search(r"go_to\((.+)\)", command).group(1)
+            go_to(location.strip(), map)
+        elif command.startswith("pick_up"):
+            object = re.search(r"pick_up\((.+)\)", command).group(1)
+            pick_up(object.strip())
+        elif command.startswith("put_down"):
+            match = re.search(r"put_down\((.+),\s*(.+)\)", command)
+            object = match.group(1).strip()
+            location = match.group(2).strip()
+            put_down(object, location)
+        elif command == "done":
+            print("All tasks completed!")
+        else:
+            print(f"Unknown command: {command}")
 
-def go_to(location):
+def go_to(location, map):
     print(f"Navigating to {location}")
+    map.get_goal(location)
     # 여기에 위치 이동 로직 구현
     pass
 
@@ -70,9 +73,9 @@ Robot:
 7. put_down(banana, trash can for bottles)
 8. done
 '''
-commands = parse_cmd(plan_response)
-for command in commands:
-    execute_command(command.strip())
+# commands = parse_cmd(plan_response)
+# for command in commands:
+#     execute_command(command.strip())
 '''
 
     # query location
