@@ -46,10 +46,12 @@ Available objects are `{avail_obj}`\n
 
 Can you provide a concise, step-by-step plan for a robot to complete the following task using only the following action functions: "find", "pick_up", "go_to", "put_down", and "done"?
 The explanation of the action functions are as follow:
-	def go_to(location: string):
+	def go_to(location: string, location_candidiate: list = None):
 		# find object location's coordinate([x, y, z] float coordinate of object) using camera equipped in robot arm 
 		# and then, navigate robot base to location coordinates
 		# location can be object, location's, or description's coordinate
+		# if location's query result is None, use location_candidiate to search other locations
+		# location_candidiate could be None
 		
 	def pick_up(what_to: string):
 		# move robot arm to 'what_to' coordinate and grasp
@@ -73,10 +75,10 @@ for example,
 when Task: Throw away a coffee cup / Available objects: coffee cup, trash can 
 Explaination:
 The robot should first find the coffee cup's location and go to the coffee cup's location using "go_to" function. Coffee cup's location is likely to be located near a table or counter where people usually drink coffee. 
-Once the robot has found the coffee cup, it should pick up the cup using its manipulator arm from the table or counter. 
+Once the robot has found the coffee cup, it should pick up the cup using its manipulator arm from the coffee cup's location. 
 Next, find the trash can's location and go to the trash can using "go_to" function. After reaching the trash can, the robot should "put_down" the coffee cup inside the trash can. Finally, the robot should confirm that the task is complete by saying "done".
 Robot:  
-1. go_to(coffee cup)
+1. go_to(coffee cup, [table, counter])
 2. pick_up(coffee cup)
 3. go_to(trash can)
 4. put_down(coffee cup, trash can)
@@ -103,7 +105,7 @@ Robot:
 1. done
         
 \nASSISTANT:\n""" 
-print(plan_user_msg)
+# print(plan_user_msg)
 plan_response = chat(user_msg=plan_user_msg, data_uri=data_uri, few_shot_prompt=None)
 print(plan_response["choices"][0]["message"]['content'])
 

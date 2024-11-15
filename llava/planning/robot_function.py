@@ -1,39 +1,71 @@
 import re
 import dmap
+ 
+# Pick up the pen from the desk and place it in the drawer 
+# Move the water bottle from the desk to the fridge
+# Grab the coffee mug and place it in the sink
+# Move the chair closer to the conference table
+# Grab the hand sanitizer and place it near the door
 
+def execute_command(commands):
+    # 맵핑 객체 초기화 (이미 존재한다고 가정)
+    map = dmap.DMAPNode(predefined=False, debug=True)  
+    
+    for command in commands:
+        command = command.strip()
+
+        if command.startswith("go_to"):
+            # 위치와 대체 위치 후보를 추출
+            match = re.search(r"go_to\(([^,]+)(?:,\s*\[(.*)\])?\)", command)
+            if match:
+                location = match.group(1).strip()
+                location_candidates = match.group(2)
+                if location_candidates:
+                    location_candidates = [loc.strip() for loc in location_candidates.split(',')]
+                else:
+                    location_candidates = None
+                
+                # go_to 함수 호출
+                go_to(location=location, location_candidate=location_candidates, map=map)
+        
+        elif command.startswith("pick_up"):
+            # pick_up 명령어에서 객체 추출
+            object_name = re.search(r"pick_up\((.+)\)", command).group(1).strip()
+            pick_up(object_name)
+        
+        elif command.startswith("put_down"):
+            # put_down 명령어에서 객체와 위치 추출
+            match = re.search(r"put_down\((.+),\s*(.+)\)", command)
+            if match:
+                object_name = match.group(1).strip()
+                location = match.group(2).strip()
+                put_down(object_name, location)
+        
+        elif command == "done":
+            # 모든 작업 완료를 확인
+            print("All tasks completed!")
+        
+        else:
+            # 알 수 없는 명령어 처리
+            print(f"Unknown command: {command}")
+
+   
 
 def parse_cmd(command: str):
-    # 명령어 부분만 추출 (Robot: 이후의 부분만)
-    command_list = command.split("Robot:")[-1]#.strip().split("\n")
-    print(command_list)
-    commands = re.findall(r'\d+\.\s*(.+)', command_list)
-    print(commands)
+    # "Robot:" 이후의 명령어 부분을 추출
+    command_list = command.split("Robot:")[-1]
+    
+    # 개별 명령어를 추출 (예: "1. go_to(...)", "2. pick_up(...)" 등)
+    commands = re.findall(r'\d+\.\s*(.+)', command_list.strip())
+    
+    # 디버깅용 출력문
+    print(f"Extracted commands: {commands}")
 
     return commands
 
-# 명령어 매핑을 위한 파싱 및 실행 함수
-def execute_command(commands):
-    map = dmap.DMAPNode(predefined=False, debug=True)  
-    for command in commands:
-        command = command.strip()
-        if command.startswith("go_to"):
-            location = re.search(r"go_to\((.+)\)", command).group(1)
-            go_to(location.strip(), map)
-        elif command.startswith("pick_up"):
-            object = re.search(r"pick_up\((.+)\)", command).group(1)
-            pick_up(object.strip())
-        elif command.startswith("put_down"):
-            match = re.search(r"put_down\((.+),\s*(.+)\)", command)
-            object = match.group(1).strip()
-            location = match.group(2).strip()
-            put_down(object, location)
-        elif command == "done":
-            print("All tasks completed!")
-        else:
-            print(f"Unknown command: {command}")
-
-def go_to(location, map):
-    print(f"Navigating to {location}")
+  
+def go_to(location, location_candidate, map):
+    print(f"Navigating to {location}, candidates: {location_candidate}") 
     map.get_goal(location)
     # 여기에 위치 이동 로직 구현
     pass

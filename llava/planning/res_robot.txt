@@ -1,0 +1,438 @@
+1. "Pick up the pen from the desk and place it in the drawer."
+2. "Grab the stack of papers and place them in the outbox."
+3. "Move the water bottle from the desk to the fridge."
+4. "Pick up the notepad and bring it to me."
+5. "Grab the stapler and put it back on the shelf."
+6. "Move the mouse pad closer to the keyboard."
+7. "Pick up the folder and place it in the filing cabinet."
+8. "Take the business cards from the holder and hand them to me."
+9. "Grab the coffee mug and place it in the sink."
+10. "Move the book from the table to the bookshelf."
+11. "Pick up the clipboard and hang it on the wall."
+12. "Grab the headset and place it on the charging dock."
+13. "Move the box from the desk to the storage area."
+14. "Pick up the phone and place it next to the computer."
+15. "Grab the whiteboard marker and place it in the tray."
+16. "Take the paper from the printer and place it on my desk."
+17. "Grab the scissors and put them in the supply drawer."
+18. "Move the trash bin closer to the desk."
+19. "Pick up the envelope and deliver it to the reception."
+20. "Grab the ruler and place it on the desk."
+21. "Move the chair closer to the conference table."
+22. "Pick up the tablet and place it on the charging station."
+23. "Grab the office keys and place them in the drawer."
+24. "Take the binder from the shelf and bring it to me."
+25. "Pick up the sticky notes and place them on the desk."
+26. "Move the bottle of water to the side table."
+27. "Grab the laptop and place it in the meeting room."
+28. "Pick up the picture frame and put it back on the shelf."
+29. "Move the file tray closer to the edge of the desk."
+30. "Grab the hand sanitizer and place it near the door."
+
+
+
+
+task: Pick up the pen from the desk and place it in the drawer 
+
+Explanation:
+The robot should first find the pen's location and go to the pen's location using "go_to" function. Pen's location is likely to be located on the desk. 
+Once the robot has found the pen, it should pick up the pen using its manipulator arm from the desk. 
+Next, find the drawer's location and go to the drawer using "go_to" function. After reaching the drawer, the robot should "put_down" the pen inside the drawer. Finally, the robot should confirm that the task is complete by saying "done".
+Robot:  
+1. go_to(pen)
+2. pick_up(pen)
+3. go_to(drawer)
+4. put_down(pen, drawer)
+5. done 
+state:  True
+Memory allocated: 0
+Memory reserved: 0
+--------------------------clean--------------------------
+  
+1. go_to(pen)
+2. pick_up(pen)
+3. go_to(drawer)
+4. put_down(pen, drawer)
+5. done 
+['go_to(pen)', 'pick_up(pen)', 'go_to(drawer)', 'put_down(pen, drawer)', 'done ']
+predefined:False, feature_dir:/home/jetson/dmap_ws/src/dmap/example, model:ViT-B-16-SigLIP, debug:True, show_prob:False
+Loading features from /home/jetson/dmap_ws/src/dmap/example
+Loaded 2172 features and 2172 features_vox
+CLIP model initializing to ViT-B-16-SigLIP
+CLIP model initialized
+DMAP Inference initialized
+Navigating to pen
+'pen' Goal: (-1.25, 9.50, 0.00), score: 4.367, freq: 18
+209 Candidate frames: [1769  348 1223  351  917  340 1754 1181  890 1757 1856 1229  860 1332
+  381  349  342  911  908  390 1751  896 1766 1760 1311  337  863  345
+ 1145 1748 1853  595 1184 1155 1329 1637 1335 1272 1158 1859 1305 1545
+  354 1195  695  387 1176  905 1201 1542 1640 1700 1742  378 1745  346
+  914 1563  830 1320 1634  798  902 1628 1763  947 1739  671 1296 1317
+ 1625 1814 1697 1564  795  393 1293 1302 1497 1736  767 1198 1278  732
+  869  689 1808  777 1323  951  384  784  764  937 1491 1161 1730 1580
+ 1536  801 1488  674 1173 1631 1196 1775  717 1338  735 1308 1694  948
+ 1167 1192 1326 1416  893  339 1500  942 1559  363  932 1413 1733  952
+ 1561 1281  804  872  684  758  690 1787 1805 1803  701  687  783 1314
+  549  334 1595 1156  711 1103 1724 1817  716  884 1189  773  836 2031
+ 1299  743  774 1556 1050 1205  372  366 1341  747  686  940 1574  929
+  662 1809  668  714 1890 1860 1828 2028 1857  328  899 1568 2145 1944
+ 1878  683  813  719 2019 1703 1118 2046  966 2043  331 2016 1275 1586
+  796  722 1604  698  772 1989  807 1908  787 1935  960 2058 1410]
+Keys in conf:
+	[(-3.25, -0.5, 0.0), (4.5, 0.5, 0.0), (4.5, 7.0, 0.0), (4.5, 7.5, 0.0), (4.75, 7.0, 0.0)]
+	[[6.117430541371505, 2], [5.536728938035296, 4], [5.429167629358744, 1], [5.429167629358744, 1], [5.429167629358744, 1]]
+Keys in freq:
+	[(-1.25, 9.5, 0.0), (3.25, 10.5, 0.0), (-1.5, 9.5, 0.0), (4.75, 8.5, 0.0), (-2.25, 3.0, 0.0)]
+	[[4.366741718028619, 18], [3.916764547737059, 17], [4.4247622108851905, 16], [4.098291549735578, 16], [3.5795976281964847, 16]]
+Picking up pen
+Navigating to drawer
+'drawer' Goal: (-3.75, 2.75, 0.00), score: 6.646, freq: 114
+318 Candidate frames: [ 942 1859  939 1532 1812 1595 1598 1631 1856  444  941 1771 1862 1592
+  435  483 1589  426 1753 1792  928 1774  945  441  952  687 1619  946
+ 1787  922 1586  477 1764  931 1563 1637 1152 1732  934 1164 1196 1853
+  432  438 1382 2012 1988 2162 1723 1976 1741  486 2105 1973  301 2036
+ 2009 1991  938 1874 1628 2066 1916 1795  403 1583 1601 1982 1616 1554
+ 1937 1955  675 1831 1541 1961  409  930 2057 1551 1535 1735 2039 1524
+ 1597 2045 2015 1967 1865 1985 1548 2129 2048  447 1910 2060 1720 1798
+ 1768 1952 2018 1561 2087 1762 2108 1146 2069 1886 1781 2165 1928 1940
+ 1922 1527 2090 1201 1530 2144 1536 2147 2063 1901 1979 1871  684 1776
+ 2123 1892 1604 1907 1946 2093 1542 2078  356 1214 1970  919 2111 2003
+ 2021 2168  933 1756 1538 2132 1594 2081 2159 1564 2024 2075 1913 2171
+ 2006 1895 2099 1925 2114 2153 2138 1949 2051 1149 1634 2102 1820 2117
+ 1588 1819 2030 2141 2033 1958 2042 2000 2027 2084 1997 1622 1828 2072
+ 2150 1591 1801 2135 1889 1784 1934 1758 1919 1167  450 2126 1793  480
+ 2120 1533 1220 1640  924  925 1898 1526 1155  926  342 1198 1786 1518
+ 2096 1567  949 1931 1773 1580 1765 1738 1866 2156 1747 1545 1904 1560
+ 1726 1943 1994 2148 1883 1964 1193 1202 1521 1974 1868 1729 1880 1744
+ 1789 2054 1158 1600  406 1863 1422 1643 1557 1750 1759 1607 1388 1539
+ 1204  456  960 1566  474 1767 1565 1783 1531 1022 1171 1877  501 1872
+ 1772 1425  916 1573 1790 1187  273 1929 1844 1983  270 1208 1517  909
+  261 1613 2127 1869 1385  325  423 2097  957  468 1834  786  783 2100
+ 1923 1761 1785 1878 1577 2067 1935 1434  304  693 1717 1890 2019 2115
+ 2031 1908 1989 1025 1769 2088 2142 1625 2130 1837]
+Keys in conf:
+	[(-3.5, 9.25, 0.0), (-3.5, 9.5, 0.0), (-3.5, 9.75, 0.0), (-3.25, 9.5, 0.0), (-3.25, 9.25, 0.0)]
+	[[8.892544774477074, 2], [8.892544774477074, 2], [8.618552374844057, 1], [8.618552374844057, 1], [8.35852551008808, 3]]
+Keys in freq:
+	[(-3.75, 2.75, 0.0), (-3.75, 3.5, 0.0), (-3.5, 3.5, 0.0), (-3.5, 3.75, 0.0), (-3.5, 4.0, 0.0)]
+	[[6.645521261695782, 114], [6.644591237020304, 111], [6.644591237020304, 111], [6.655030657066017, 106], [6.64770093043604, 93]]
+Putting down pen in drawer
+All tasks completed!
+
+
+
+
+
+
+
+
+ 
+task: Move the water bottle from the desk to the fridge
+
+Explanation:
+The robot should first find the water bottle's location and go to the water bottle's location using "go_to" function. Water bottle's location is likely to be located near a desk or table where people usually drink water. 
+Once the robot has found the water bottle, it should pick up the bottle using its manipulator arm from the desk or table. 
+Next, find the fridge's location and go to the fridge using "go_to" function. After reaching the fridge, the robot should "put_down" the water bottle inside the fridge. Finally, the robot should confirm that the task is complete by saying "done".
+Robot:  
+1. go_to(water bottle, [desk, table])
+2. pick_up(water bottle)
+3. go_to(fridge)
+4. put_down(water bottle, fridge)
+5. done 
+state:  True
+Memory allocated: 0
+Memory reserved: 0
+--------------------------clean--------------------------
+Extracted commands: ['go_to(water bottle, [desk, table])', 'pick_up(water bottle)', 'go_to(fridge)', 'put_down(water bottle, fridge)', 'done']
+predefined:False, feature_dir:/home/jetson/dmap_ws/src/dmap/example, model:ViT-B-16-SigLIP, debug:True, show_prob:False
+Loading features from /home/jetson/dmap_ws/src/dmap/example
+Loaded 2172 features and 2172 features_vox
+CLIP model initializing to ViT-B-16-SigLIP
+CLIP model initialized
+DMAP Inference initialized
+Navigating to water bottle, candidates: ['desk', 'table']
+'water bottle' Goal: (3.25, 10.50, 0.00), score: 2.313, freq: 36
+131 Candidate frames: [1241 1235  420 1232 1225 1228 1448  411 1148  716 1151  408  677 1238
+  917 1145 1133  753 1436  674  911  689  713  734  393  758  701 1142
+ 1222  812  905  722 1129  414  698  795 1023  695  341  704  790  761
+  914 1135 1070  352 1206  803 1442  719  743 1215 1012  798 1439  793
+  671  746  680  933  707  576  740  399  890  692  710 1009  728  402
+  902 1212 1766  786  940  772  843  361  405  725 1209  755  358  344
+ 1029  731  737  683 1769  417  908  347 1026  391 1809  796 1093  792
+ 1061 1430  749 1139 1754  920  769  899  784  893  251  342  340  579
+ 1229 1856  935 1203  665 1020 1090 1445 1136  668 1808 1335  257  775
+  807 1757 1059  896 1078]
+Keys in conf:
+	[(4.5, 7.25, 0.0), (4.25, 3.25, 0.0), (4.25, 6.0, 0.0), (4.25, 10.5, 0.0), (4.5, 7.0, 0.0)]
+	[[5.051912294599485, 3], [3.4712384632143767, 2], [3.260680354193011, 7], [3.1792398527500154, 4], [3.1727365393644154, 13]]
+Keys in freq:
+	[(3.25, 10.5, 0.0), (4.5, 2.25, 0.0), (3.5, 11.0, 0.0), (3.25, 10.25, 0.0), (3.5, 10.5, 0.0)]
+	[[2.31287301090553, 36], [2.279972353328625, 21], [1.9814731701607968, 18], [2.217115944687427, 17], [2.0385154749336842, 17]]
+Picking up water bottle
+Navigating to fridge, candidates: None
+'fridge' Goal: (2.50, -0.75, 0.00), score: 7.147, freq: 28
+198 Candidate frames: [ 915  933  936  930 1775 1756 1167 1762 1171  323  678  326  318  921
+ 1176  356 1170  366  939  924 1164  918  916  795  325  384  859  331
+  328  341  681 1454 1198  332 1466 1478 1765  862  302 1457 1448 1152
+ 1780  912 1811  314  426 1182  303  372  234  309 1777  308 1185  296
+  381  900 1463 1173  305 1022 1469  306 1538 1820 1451 1433  856 1179
+  343 1187 1188  290  492  255 1518  279  291 1817  390 1204  874 1814
+  312 1481  942  910 1541 1521  720  393  287 1532  243 1439  672  871
+  329 1527 1566  317  240  927  387 1781 1472  273  288 1228  300 1184
+ 1036 1436  913 1517 1752 1220 1740 1155  865 1241 1460  293  675 1424
+  723 1747  369 1563 1515 1421  880 1749 1758 1548 1044 1223  486  252
+  264  251  270 1741 1524  261  320  254 1535  299  504  342  877 1191
+ 1196  868 1475 1589 1382  687  495 1786  311  928 1442 1785 1370  267
+ 1560  853 1755  237 1595 1213 1207  841  729 1771  901  403 1598 1542
+ 1569  301  904  400  249  420 1564 1619 1746  294 1202  812  850  609
+  258  907]
+Keys in conf:
+	[(-1.5, 10.75, 0.0), (-3.25, 10.0, 0.0), (-3.25, 11.0, 0.0), (-3.0, 10.0, 0.0), (-3.5, 10.0, 0.0)]
+	[[10.792901409206479, 1], [10.23080607343445, 2], [9.770085404738893, 1], [9.69745238124915, 4], [9.673241373419236, 3]]
+Keys in freq:
+	[(2.5, -0.75, 0.0), (2.75, -0.75, 0.0), (2.25, -0.75, 0.0), (4.75, 1.5, 0.0), (4.75, 1.0, 0.0)]
+	[[7.146971420369549, 28], [7.209092924737638, 27], [7.1297379549627875, 26], [7.784711866970411, 25], [7.847551367873469, 23]]
+Putting down water bottle in fridge
+All tasks completed!
+
+
+
+
+
+task: Grab the coffee mug and place it in the sink
+
+Explanation:
+The robot should first find the coffee mug's location and go to the coffee mug's location using "go_to" function. Coffee mug's location is likely to be located near a table or counter where people usually drink coffee. 
+Once the robot has found the coffee mug, it should pick up the cup using its manipulator arm from the table or counter. 
+Next, find the sink's location and go to the sink using "go_to" function. After reaching the sink, the robot should "put_down" the coffee mug inside the sink. Finally, the robot should confirm that the task is complete by saying "done".
+Robot:  
+1. go_to(coffee mug, [table, counter])
+2. pick_up(coffee mug)
+3. go_to(sink)
+4. put_down(coffee mug, sink)
+5. done 
+state:  True
+Memory allocated: 0
+Memory reserved: 0
+--------------------------clean--------------------------
+Extracted commands: ['go_to(coffee mug, [table, counter])', 'pick_up(coffee mug)', 'go_to(sink)', 'put_down(coffee mug, sink)', 'done']
+predefined:False, feature_dir:/home/jetson/dmap_ws/src/dmap/example, model:ViT-B-16-SigLIP, debug:True, show_prob:False
+Loading features from /home/jetson/dmap_ws/src/dmap/example
+Loaded 2172 features and 2172 features_vox
+CLIP model initializing to ViT-B-16-SigLIP
+CLIP model initialized
+DMAP Inference initialized
+Navigating to coffee mug, candidates: ['table', 'counter']
+'coffee mug' Goal: (-3.75, 2.75, 0.00), score: 2.485, freq: 23
+222 Candidate frames: [1009 1020 1847 1023  393 1794 1017 1012 1766  953  753  962 1763  956
+ 1791  578 1335  967 1809  914 1856  704 1803 1029 1797 1754 1748  701
+ 1015 1026  581 1694  944 1323 1296 1757  575 1135 1338 1011  695 1050
+ 1151 1332 1810  941  964 2117  798  739 1788 1055 1785 1751  950 1070
+ 1018 1019  716 1275 1806 1071 1041 1701  689 1800 1066 1825 1302 1742
+  692  786  671 1006 1745  698 1812 1859  997  958  605 1769  952 1822
+ 1838 1326  683 1305 1700 1016 1293 1828 1067  905 1819 1760 1341  713
+ 1008 1061 1272 1049  783  761 1776 1329  938  754 1068  342  674 1844
+ 1064  635 1201 1000  707 1673 1281  620 1053  959  758 1058  592  710
+  680 1040 1005 1284 1737 1691 1047 1716 1704 1042 1733  961 1697 1439
+ 1706 1850 1030 1024 1069 1045  617  969  807 1133  608 1025 1724 1033
+ 1730 1577  930  595  611  570 1229  945 1057  557 1074 1841 1715 1308
+ 1299  955 1317 1142 1078 1269 1853 1739  584 1231  965  576 2171  586
+ 1779  940  780  656 1813  917 1688  614  638 1703  719 1242  949  589
+  911  677 1676 1056 1196  789 1311 1815 1148  942 1138 1003 1021 1874
+ 1707  795 1736 1834  968  926  796 1072  653 1054  994  746]
+Keys in conf:
+	[(0.0, 7.0, 0.0), (4.5, 1.75, 0.0), (4.75, 2.0, 0.0), (4.75, 2.25, 0.0), (-0.5, 6.0, 0.0)]
+	[[4.602170013740192, 1], [4.176844150026682, 1], [4.176844150026682, 1], [4.176844150026682, 1], [3.5492995878154687, 4]]
+Keys in freq:
+	[(-3.75, 2.75, 0.0), (-4.0, 2.25, 0.0), (-2.0, -0.5, 0.0), (3.25, 10.5, 0.0), (-0.25, 7.0, 0.0)]
+	[[2.4848293131870585, 23], [2.5236641163122187, 19], [2.039198536686408, 19], [2.0907165990726284, 16], [2.942441898773345, 14]]
+Picking up coffee mug
+Navigating to sink, candidates: None
+'sink' Goal: (2.25, -0.75, 0.00), score: 6.257, freq: 107
+265 Candidate frames: [1081  674 1090 1129  677 1800 1825 1087 1604  644 1138 1809 1146  659
+ 1831  783 1114 1773  903  671  285 1093 1785  786 1595  795 1143 1149
+  288  906 1130  282 1078 1124  933 1622 1586 1776 1135 1628 1133  228
+  231  780 1619  689   75  426 1152  665  253  332  171  792  641 1583
+ 1099  276  258  325 1574  754 1117 1592  808  279 1132  805  270   57
+ 1096 1607  486  323  213  240  234  789  267   72 1196  635  326  264
+  183  156 1201 1847 1524 1105 1140 1164  308   24  909 1120  186 1797
+  165   66  141 1158    9  255 1631 1853 1598  150  189  261 1625  180
+  216   30  153 1121  291  813  192  132  935   36 1844 1108  704  102
+ 1167 1589 1601   78 1565  210 1580 1859    3  329  335  126  108 1542
+ 1577   90   15 1828 1856 1111   87 1840 1155   48 1568   84 1571  615
+  219 1779 1564  952  936 1168  680   51  273  117 1123 1803  144  114
+  201   81 1518 1517  317   54  195  432  204   99  177  198 1198  305
+  138  174   18 1184   60 1126  662  105  168   12   45   69 1837 1794
+ 1536 1812  106  409   63  343  638  698 1199  774  595 1529  415   88
+   27  111 1822 1137 1561   93  237 1810 1806  656  162 1515 1545  412
+  190  243  135  320   39  118  252  271   97  626  159  846    0 1102
+  147  262   96   42  120  346 1127  701  679 1232  302  268 1521 1430
+  438  668   61 1791 1637  123    6 1084 1819  707 1200   52  225]
+Keys in conf:
+	[(-3.5, 2.25, 0.0), (3.0, 7.5, 0.0), (4.25, 10.0, 0.0), (4.25, 10.25, 0.0), (4.25, 10.75, 0.0)]
+	[[7.855602322354116, 1], [7.355468030073098, 1], [7.342381843498913, 4], [7.342381843498913, 4], [7.217856738029127, 2]]
+Keys in freq:
+	[(2.25, -0.75, 0.0), (2.0, -0.75, 0.0), (1.75, -0.75, 0.0), (2.5, -0.75, 0.0), (1.5, -0.75, 0.0)]
+	[[6.256747317129188, 107], [6.223636808515332, 94], [6.2148069372422965, 87], [6.291165868905829, 83], [6.244290376978548, 80]]
+Putting down coffee mug in sink
+All tasks completed! 
+
+
+
+
+
+
+
+task: Move the chair closer to the conference table
+
+Explanation:
+The robot should first find the chair's location and go to the chair using "go_to" function. Chair's location is likely to be located near a table or counter where people usually sit. 
+Once the robot has found the chair, it should pick up the chair using its manipulator arm from the table or counter. 
+Next, find the conference table's location and go to the conference table using "go_to" function. After reaching the conference table, the robot should "put_down" the chair on top of the conference table. Finally, the robot should confirm that the task is complete by saying "done".
+Robot:  
+1. go_to(chair, [table, counter])
+2. pick_up(chair)
+3. go_to(conference table)
+4. put_down(chair, conference table)
+5. done 
+state:  True
+Memory allocated: 0
+Memory reserved: 0
+--------------------------clean--------------------------
+Extracted commands: ['go_to(chair, [table, counter])', 'pick_up(chair)', 'go_to(conference table)', 'put_down(chair, conference table)', 'done']
+predefined:False, feature_dir:/home/jetson/dmap_ws/src/dmap/example, model:ViT-B-16-SigLIP, debug:True, show_prob:False
+Loading features from /home/jetson/dmap_ws/src/dmap/example
+Loaded 2172 features and 2172 features_vox
+CLIP model initializing to ViT-B-16-SigLIP
+CLIP model initialized
+DMAP Inference initialized
+Navigating to chair, candidates: ['table', 'counter']
+'chair' Goal: (3.25, 7.25, 0.00), score: 7.505, freq: 22
+144 Candidate frames: [1071  583  586 1683 1689  587 1686  605 1677 1003  584  608 1692 1680
+ 1674 1668 1671 1006  629  589  590  580  577  626  994  991  632  593
+ 1665  988 1000  547  985  982  544  559  611  976  997  592  973  595
+ 1068  620  541  571 1704  581 1026  623  970  520  565 1659 1281 1486
+ 1629  599  562  568  567  524  979  533  496  514 1489 1293  596 1009
+ 1329 1662  518 1332  532 1284  650 1335  553  521  550 1015  614  535
+  556  945 1632  517 1656  523  570 1429 1323 1311 1860  529 1695  934
+  967 1426 1012 1278  641  511  543  602  574 1350 1498  549 1866  555
+ 1326 1005  526  617  962  527  671  560 1029  635  515 1272 1623  653
+ 1320 1493  437  578 1018  301 1863  313  662 1341 1317  499  959 1508
+  598  647 1045  937]
+Keys in conf:
+	[(-0.75, 0.75, 0.0), (-0.5, 6.0, 0.0), (0.0, 6.25, 0.0), (1.5, 7.25, 0.0), (-1.25, 0.5, 0.0)]
+	[[9.102531408988549, 3], [9.066007377862206, 1], [9.066007377862206, 1], [9.019730697366413, 1], [8.839435425159792, 1]]
+Keys in freq:
+	[(3.25, 7.25, 0.0), (-0.25, 7.0, 0.0), (-0.5, 0.5, 0.0), (0.0, 6.5, 0.0), (0.0, 0.5, 0.0)]
+	[[7.505043055394835, 22], [7.60516616416802, 16], [8.134638446626319, 12], [7.462625751044942, 12], [7.786530049707194, 9]]
+Picking up chair
+Navigating to conference table, candidates: None
+'conference table' Goal: (-2.25, 3.00, 0.00), score: 6.750, freq: 104
+165 Candidate frames: [ 574  541  599  571 2166 1992  568  596  488 1968 2139 2082 1917 2046
+  602 2169 2103 1935 2043 2163 1938 1995 2055 2022 1944 2157 2136 2106
+ 2112 1965 2130 2073 1998 2019 1911 1932 2133 2145 1989 2109 2142 2058
+ 1941 1887 2085 2160  584 2016 1947 2115 2031 1971 1866  593 2025 1920
+ 2100 2013  556 2049 1914 1926 1986 1905 2076 2052  565  550 2079 2001
+ 1875 2010 1962 1950 1872 1893 2151 2028 2124 2070 1959 1890 2088 1908
+ 1902 1977 1953 1068  587 1980 1878 2127  562  559 2154 2121 2004 2118
+ 2064 1884 2061 2148 1974 1863  538  544 2007 2097 2034 1881 1896 1983
+ 2094 2040  590 2091 1923 1899 1929  580 2037  547 1869 1956  629  491
+ 2067  570  494  925  996  500  650  993  614 1860  611  485  476  535
+  514  416 1353 1043  577  497 1005  592 1054  632 1350 1003 1281  586
+  620 1006  517  437  553  482  953  931  994  479  515]
+Keys in conf:
+	[(1.5, 7.25, 0.0), (-2.25, 3.25, 0.0), (-2.5, 1.75, 0.0), (-2.0, 3.0, 0.0), (-2.25, 3.0, 0.0)]
+	[[6.965215680759229, 1], [6.820829772203751, 2], [6.764298328876071, 102], [6.763160471916448, 99], [6.750173178633782, 104]]
+Keys in freq:
+	[(-2.25, 3.0, 0.0), (-2.5, 1.75, 0.0), (-2.0, 3.0, 0.0), (3.25, 7.25, 0.0), (-2.5, 2.0, 0.0)]
+	[[6.750173178633782, 104], [6.764298328876071, 102], [6.763160471916448, 99], [5.628821134554991, 7], [6.452798256962922, 4]]
+Putting down chair in conference table
+All tasks completed!
+
+
+
+
+task: Grab the hand sanitizer and place it near the door
+-> from the table OR counter가 반복되어 나타남 (명령문 안에 from desk와 같이 명확한 출발지가 안써져있으면 from table or counter가 반복되는 것으로 추정됨) -> coffee cup's location으로 프롬프트 변경해봄 
+
+Explanation:
+The robot should first find the hand sanitizer's location and go to the hand sanitizer's location using "go_to" function. Hand sanitizer's location is likely to be located near a door or entrance where people usually use it. 
+Once the robot has found the hand sanitizer, it should pick up the bottle using its manipulator arm from the table or counter. 
+Next, find the door's location and go to the door using "go_to" function. After reaching the door, the robot should "put_down" the hand sanitizer bottle inside the door. Finally, the robot should confirm that the task is complete by saying "done".
+Robot:  
+1. go_to(hand sanitizer, [door, entrance])
+2. pick_up(hand sanitizer)
+3. go_to(door)
+4. put_down(hand sanitizer, door)
+5. done 
+state:  True
+Memory allocated: 0
+Memory reserved: 0
+--------------------------clean--------------------------
+Extracted commands: ['go_to(hand sanitizer, [door, entrance])', 'pick_up(hand sanitizer)', 'go_to(door)', 'put_down(hand sanitizer, door)', 'done']
+predefined:False, feature_dir:/home/jetson/dmap_ws/src/dmap/example, model:ViT-B-16-SigLIP, debug:True, show_prob:False
+Loading features from /home/jetson/dmap_ws/src/dmap/example
+Loaded 2172 features and 2172 features_vox
+CLIP model initializing to ViT-B-16-SigLIP
+CLIP model initialized
+DMAP Inference initialized
+Navigating to hand sanitizer, candidates: ['door', 'entrance']
+'hand sanitizer' Goal: (2.00, 1.25, 0.00), score: 2.735, freq: 67
+157 Candidate frames: [1228 1232 1215 1235 1238 1442 1241  420 1225  393  411 1430  352 1445
+ 1439 1436  396 1433 1427 1448  658 1424  554  803 1421  536 1370  628
+  278  399  616  251 1451 1129 1231  918 1487  224  661  182  194   53
+  341  257 1256  266   83  355  188 1250 1403  275  733 1120  203   38
+ 1490  197  143 1168 1391  916   59  637   92 1418 1175    5 1150  140
+  619   14  263    8  146  155   35  152  131 1135  179   89   71  185
+  101   95 1222   68  173   65  119   86   98  408 1259  747  113  176
+  158  206   29  128  161  149  518   41  209    2  125  170   17  200
+ 1107  167  191  122  107  134  625   50  795   47   62   56  338 1253
+  335  545   11   20  284   44  551 1077 1274   26 1292 1286   74  346
+  104 1493   32 1374 1123  239  414 1110 1367  808  542  254 1335  110
+   23  137  212]
+Keys in conf:
+	[(4.75, 7.25, 0.0), (4.75, 7.0, 0.0), (4.5, 7.25, 0.0), (4.5, 7.5, 0.0), (4.5, 7.0, 0.0)]
+	[[6.131811666595392, 3], [5.925051740422305, 2], [5.629839626641342, 3], [4.790179094396763, 2], [4.5560458341360395, 13]]
+Keys in freq:
+	[(2.0, 1.25, 0.0), (2.75, 1.25, 0.0), (4.5, 2.25, 0.0), (4.5, 7.0, 0.0), (4.25, 2.75, 0.0)]
+	[[2.7347821220095563, 67], [2.7492087173103026, 60], [3.7966273818728054, 23], [4.5560458341360395, 13], [3.8558288160107157, 13]]
+Picking up hand sanitizer
+Navigating to door, candidates: None
+'door' Goal: (-3.75, 1.25, 0.00), score: 7.413, freq: 22
+199 Candidate frames: [1244 1807 1247 1793 1231 1795 1817 1811 1804 1814 1218 1784 1170 1798
+ 1250  290 1775  305  320  293 1253 1790  426 1789 1801 1259 1781 1256
+  311  302  720  343  723 1776 1782 1509  325  308 1506 1176  287 1173
+  939 1220  726 1820 1207 1512 1787 1503  423 1792 1773 1241  299 1521
+ 1152  236  239  323  432  429 1829  729  296 1778 1527 1736 1771  317
+ 1433 1762 1786 1826 1204  314 1813  328 1179 1418 1469 1155  233 1515
+ 1530  240 1770 1497 1524 1187 1566 1518  912 1442  269  856 1548 1427
+ 1772 1439 1712  275 1113 1149  329 1463 1768 1228  257  246  332 1475
+ 1430 1500 1454 1742 1779  272 1406 1564 1181  331 1482 1104 1549  248
+ 1210 1774 1810 1844 1703  278 1688  245 1397 1645  906  266  284 1706
+  817  254  263  942 1182  242  909 1164 1599 1563  281 1694 1198 1533
+ 1697 1223 1146  859 1472 1479 1457 1561 1140 1470 1595 1271 1213  326
+ 1730 1448 1478 1621 1785 1573 1157  853  251  936  847 1682 1733 1570
+  850 1158 1268  862  844 1593 1171 1162 1274 1679 1403 1602 1424 1808
+ 1167 1724 1551]
+Keys in conf:
+	[(4.25, 6.75, 0.0), (4.5, 6.75, 0.0), (4.25, 6.0, 0.0), (4.5, 7.0, 0.0), (-3.75, 1.5, 0.0)]
+	[[8.671275508959297, 1], [8.454638857111263, 2], [7.95512621150948, 10], [7.923695545536841, 9], [7.588749684771479, 8]]
+Keys in freq:
+	[(-3.75, 1.25, 0.0), (-3.75, 1.0, 0.0), (2.5, -0.75, 0.0), (4.75, 1.0, 0.0), (4.75, 8.0, 0.0)]
+	[[7.412931581572544, 22], [7.48074516119317, 19], [6.408519501210463, 18], [6.551733708719145, 17], [6.627853744409329, 16]]
+Putting down hand sanitizer in door
+All tasks completed!
+
+변경 후
+Explanation:
+The robot should first find the hand sanitizer's location and go to the hand sanitizer's location using "go_to" function. Hand sanitizer's location is likely to be located near a door or entrance where people usually use it. 
+Once the robot has found the hand sanitizer, it should pick up the bottle using its manipulator arm from the hand sanitizer's location. 
+Next, find the door's location and go to the door using "go_to" function. After reaching the door, the robot should "put_down" the hand sanitizer bottle inside the door. Finally, the robot should confirm that the task is complete by saying "done".
+Robot:  
+1. go_to(hand sanitizer, [door, entrance])
+2. pick_up(hand sanitizer)
+3. go_to(door)
+4. put_down(hand sanitizer, door)
+5. done 
+
+

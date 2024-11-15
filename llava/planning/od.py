@@ -13,7 +13,7 @@ def image_to_base64_data_uri(file_path):
 # Replace 'file_path.png' with the actual path to your PNG file
 # img = input("원하는 사진 이름 입력: ")
 # file_path = './' + img #'./404.png'  
-file_path = './1.png' # dog_bike_car
+file_path = './images.png' # dog_bike_car
 data_uri = image_to_base64_data_uri(file_path=file_path)
 
 
